@@ -1,7 +1,7 @@
 * Snakes on a Hadoop :slide:
   + PyCon 2014
   + Jim Blomo
-  + TODO github URL
+  + https://jblomo.github.io/pycon-mrjob/slides/MapReduce.html#sec-1
 
 * Let's Jump In :slide:
 #+begin_src shell
@@ -19,14 +19,17 @@ pip install -r requirements.txt
   + What is MapReduce?
   + Writing MapReduce in mrjob
   + Exercise 1, user activity
-  + How does mrjob work?
-  + Exercise 2, user-user similarity
-  + mrjob in the cloud
-  + Exercise 3, Amazon EMR
+  + Joins and Programmatic usage
+  + Exercise 2, self-joins
+  + Multi-step jobs & Protocols
+  + Exercise 3, finding Yelp reviews with unique words
+  + Exploring user-user similarity
+  + Exercise 4, putting it all together
+  + Deploying on AWS
 ** Sections :notes:
    + I will give some background, answer questions (35 minutes)
    + I'll introduce a script (5 minutes)
-   + The execrise will have audience extending the script to get it working (15 minutes)
+   + The exercise will have audience extending the script to get it working (15 minutes)
    + We'll go over an example solution (5 minutes)
 
 * Interest? :slide:
@@ -337,7 +340,7 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
   + Write single threaded program (not mrjob) to transform it
 ** Not covered :notes:
    + This is a little out of the scope of this tutorial
-   + Just know that not all types of data are amenible to MapReduce, and
+   + Just know that not all types of data are amenable to MapReduce, and
    Hadoop/mrjob specifically
 
 * Most Common Title Words :slide:
@@ -369,15 +372,15 @@ V,1012,1
         runner.stream_output()
 #+end_src
 ** Example :notes:
-   + code/top_titles.py
+   + =code/top\_titles.py=
 
 * *BREAK* :slide:
   + Please complete exercise 2
-  + Fill in =code/title\_counts.py=
+  + Fill in =code/count\_titles.py=
   + Examine and run with =code/top\_titles.py=
 
 * Solution :slide:
-  + =git checkout ex1=
+  + =git checkout ex2=
   + yield a tuple tagged with either 'A' or 'V'
   + When iterating through values, extract the data from the tagged tuple
 
@@ -471,16 +474,25 @@ V,1012,1
   + Find users >= 0.5 similarity
   + User Similarity: Jaccard similarity of businesses reviewed
   + {BizA, BizB, BizC} ~ {BizF, BizB, BizG}
-  + Hint: Users with > 0 similarity will share at least 1 business
 
 * *BREAK* :slide:
   + Please complete exercise 4
   + Fill in =code/user\_similarity.py=
   + Run with data in =yelp/selected_reviews.json=
+  + Hint: Users with > 0 similarity will share at least 1 business
+
+* Solution :slide:
+  + Map user to list of businesses reviewed
+  + Map business to list of user descriptions
+  + Find users with similarity
+  + De-duplicate
+** Efficiency :notes:
+   + We do duplicate work, but the trade-off is parallelism in the best case
+   (not many users are overlapping with each other for dozens of reviews)
 
 * EMR :slide:
   + We've been using local mode
-  + effective for debugging, small amounts of data
+  + Effective for debugging, small amounts of data
   + What about actually processing Big Data?
 
 * Elastic MapReduce :slide:
@@ -495,11 +507,11 @@ V,1012,1
   + Tracking, error collection, job sharing
 
 * Settings :slide:
-  + instance types
+  + Instance types
   + EMR keys
-  + location for logs
+  + Location for logs
   + SSH key
-  + bootstrap
+  + Bootstrap behavior
 
 * Bootstrap :slide:
   + use of # for file uploads
@@ -507,31 +519,48 @@ V,1012,1
   + installation of python packages
 
 * Book Keeping :slide:
-  + --output-dir s3://
+  + --output-dir s3://output-bucket/path/
   + --no-output
   + intermediate results stored on HDFS
 
-* Tracking :slide:
+* Tracking :slide:two_col:
   + mrjob opens an SSH tunnel to the master node for Hadoop stats
   + On job failure, will download logs and use heuristics to find likely error
+  [[file:img/HadoopUI.png]]
 
-* Job-Flow sharing :slide:
-  + Will not shut down a job-flow until close to billing period
-  + Multiple jobs can use same job-flow if setup is the same
-  + State stored in S3
+* EMR Pricing :slide:
+  + Job flows are billed hourly, rounding *up*
+[[file:img/jobflow-no-pooling.png]]
+** Typical usage :notes:
+   + Spin up a job flow, when finished, kill it
+   + Remaining time and end of last hour is wasted
+   + Billed for it, but not used
 
-* Example run :slide:
-  + specify academic set in S3
-  + connect to master to show status
-  + error returns results
+** Job Flow Pooling :slide:
+   + Don't end job flow after job, share remaining time
+[[file:img/jobflow-pooling.png]]
+   + New jobs can wait N minutes for an idle flow
+*** Pooling :notes:
+   + Billed on the hour, so don't give up early!
+   + Only shut down idle job flows at the end of the hour
+   + If another job comes up, reuse idle flow
+   + Also makes job faster to spin up BONUS for developers
 
+* mrjob Workflow :slide:
+  + Develop locally on subset of data
+  + Run on EMR on all data located in S3 bucket
+  + Either save output in S3, or stream locally
 
-#+STYLE: <link rel="stylesheet" type="text/css" href="production/common.css" />
-#+STYLE: <link rel="stylesheet" type="text/css" href="production/screen.css" media="screen" />
-#+STYLE: <link rel="stylesheet" type="text/css" href="production/projection.css" media="projection" />
-#+STYLE: <link rel="stylesheet" type="text/css" href="production/color-blue.css" media="projection" />
-#+STYLE: <link rel="stylesheet" type="text/css" href="production/presenter.css" media="presenter" />
-#+STYLE: <link href='http://fonts.googleapis.com/css?family=Lobster+Two:700|Yanone+Kaffeesatz:700|Open+Sans' rel='stylesheet' type='text/css'>
+* Thank You! :slide:
+  + Jim Blomo, Engineering Manager Yelp
+  + @jimblomo
+
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="production/common.css" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="production/screen.css" media="screen" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="production/projection.css" media="projection" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="production/color-blue.css" media="projection" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="production/presenter.css" media="presenter" />
+#+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Lobster+Two:700|Yanone+Kaffeesatz:700|Open+Sans' rel='stylesheet' type='text/css'>
 
 #+BEGIN_HTML
 <script type="text/javascript" src="production/org-html-slideshow.js"></script>
@@ -542,6 +571,3 @@ V,1012,1
 # org-export-html-style-include-scripts: nil
 # buffer-file-coding-system: utf-8-unix
 # End:
-
-
-
