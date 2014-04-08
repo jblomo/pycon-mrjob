@@ -11,12 +11,9 @@ class UniqueReview(MRJob):
     def extract_words(self, _, record):
         """Take in a record, filter by type=review, yield <word, review_id>"""
         if record['type'] == 'review':
-            ###
-            # TODO: for each word in the review, yield the correct key,value
-            # pair:
-            # for word in ____:
-            #   yield [ ___ , ___ ]
-            ##/
+            for word in WORD_RE.findall(record['text']):
+                yield [word.lower(), record['review_id']]
+
 
     def count_reviews(self, word, review_ids):
         """Count the number of reviews a word has appeared in.  If it is a
@@ -24,18 +21,12 @@ class UniqueReview(MRJob):
         and 1 (the number of words that were unique)."""
 
         unique_reviews = set(review_ids)  # set() uniques an iterator
-        ###
-        # TODO: yield the correct pair when the desired condition is met:
-        # if ___:
-        #     yield [ ___ , ___ ]
-        ##/
+        if len(unique_reviews) == 1:
+            yield [unique_reviews.pop(), 1]
 
     def count_unique_words(self, review_id, unique_word_counts):
         """Output the number of unique words for a given review_id"""
-        ###
-        # TODO: summarize unique_word_counts and output the result
-        # 
-        ##/
+        yield [review_id, sum(unique_word_counts)]
 
     def steps(self):
         """TODO: Document what you expect each mapper and reducer to produce:
