@@ -471,16 +471,25 @@ V,1012,1
   + Find users >= 0.5 similarity
   + User Similarity: Jaccard similarity of businesses reviewed
   + {BizA, BizB, BizC} ~ {BizF, BizB, BizG}
-  + Hint: Users with > 0 similarity will share at least 1 business
 
 * *BREAK* :slide:
   + Please complete exercise 4
   + Fill in =code/user\_similarity.py=
   + Run with data in =yelp/selected_reviews.json=
+  + Hint: Users with > 0 similarity will share at least 1 business
+
+* Solution :slide:
+  + Map user to list of businesses reviewed
+  + Map business to list of user descriptions
+  + Find users with similarity
+  + Deduplicate
+** Efficiency :notes:
+   + We do duplicate work, but the trade-off is parallelism in the best case
+   (not many users are overlapping with each other for dozens of reviews)
 
 * EMR :slide:
   + We've been using local mode
-  + effective for debugging, small amounts of data
+  + Effective for debugging, small amounts of data
   + What about actually processing Big Data?
 
 * Elastic MapReduce :slide:
@@ -495,11 +504,11 @@ V,1012,1
   + Tracking, error collection, job sharing
 
 * Settings :slide:
-  + instance types
+  + Instance types
   + EMR keys
-  + location for logs
+  + Location for logs
   + SSH key
-  + bootstrap
+  + Bootstrap behavior
 
 * Bootstrap :slide:
   + use of # for file uploads
@@ -507,24 +516,41 @@ V,1012,1
   + installation of python packages
 
 * Book Keeping :slide:
-  + --output-dir s3://
+  + --output-dir s3://output-bucket/path/
   + --no-output
   + intermediate results stored on HDFS
 
-* Tracking :slide:
+* Tracking :slide:two_col:
   + mrjob opens an SSH tunnel to the master node for Hadoop stats
   + On job failure, will download logs and use heuristics to find likely error
+  [[file:img/HadoopUI.png]]
 
-* Job-Flow sharing :slide:
-  + Will not shut down a job-flow until close to billing period
-  + Multiple jobs can use same job-flow if setup is the same
-  + State stored in S3
+* EMR Pricing :slide:
+  + Job flows are billed hourly, rounding *up*
+[[file:img/jobflow-no-pooling.png]]
+** Typical usage :notes:
+   + Spin up a job flow, when finished, kill it
+   + Remaining time and end of last hour is wasted
+   + Billed for it, but not used
 
-* Example run :slide:
-  + specify academic set in S3
-  + connect to master to show status
-  + error returns results
+** Job Flow Pooling :slide:
+   + Don't end job flow after job, share remaining time
+[[file:img/jobflow-pooling.png]]
+   + New jobs can wait N minutes for an idle flow
+*** Pooling :notes:
+   + Billed on the hour, so don't give up early!
+   + Only shut down idle job flows at the end of the hour
+   + If another job comes up, reuse idle flow
+   + Also makes job faster to spin up BONUS for developers
 
+* mrjob Workflow :slide:
+  + Develop locally on subset of data
+  + Run on EMR on all data located in S3 bucket
+  + Either save output in S3, or stream locally
+
+* Thank You! :slide:
+  + Jim Blomo, Engineering Manager Yelp
+  + @jimblomo
 
 #+STYLE: <link rel="stylesheet" type="text/css" href="production/common.css" />
 #+STYLE: <link rel="stylesheet" type="text/css" href="production/screen.css" media="screen" />
@@ -542,6 +568,3 @@ V,1012,1
 # org-export-html-style-include-scripts: nil
 # buffer-file-coding-system: utf-8-unix
 # End:
-
-
-
