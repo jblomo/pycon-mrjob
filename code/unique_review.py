@@ -37,24 +37,6 @@ class UniqueReview(MRJob):
         # 
         ##/
 
-    def aggregate_max(self, review_id, unique_word_count):
-        """Group reviews/counts together by the MAX statistic."""
-        ###
-        # TODO: By yielding using the same keyword, all records will appear in
-        # the same reducer:
-        # yield ["MAX", [ ___ , ___]]
-        ##/
-
-    def select_max(self, stat, count_review_ids):
-        """Given a list of pairs: [count, review_id], select on the pair with
-        the maximum count, and output the result."""
-        ###
-        # TODO: find the review with the highest count, yield the review_id and
-        # the count. HINT: the max() function will compare pairs by the first
-        # number
-        #
-        #/
-
     def steps(self):
         """TODO: Document what you expect each mapper and reducer to produce:
         mapper1: <line, record> => <key, value>
@@ -62,8 +44,7 @@ class UniqueReview(MRJob):
         mapper2: ...
         """
         return [self.mr(self.extract_words, self.count_reviews),
-                self.mr(reducer=self.count_unique_words),
-                self.mr(self.aggregate_max, self.select_max)]
+                self.mr(reducer=self.count_unique_words)]
 
 if __name__ == '__main__':
     UniqueReview.run()
