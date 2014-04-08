@@ -506,6 +506,12 @@ V,1012,1
   + Transparent inter-job bookkeeping
   + Tracking, error collection, job sharing
 
+* How To :slide:
+#+begin_src shell
+python code/unique_review.py -r emr -c mrjob.conf s3://i290-jblomo/data/selected_reviews.json.gz
+#+end_src
+  + Simply specify =-r emr=
+
 * Settings :slide:
   + Instance types
   + EMR keys

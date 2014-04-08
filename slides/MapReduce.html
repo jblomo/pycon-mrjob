@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>MapReduce</title>
-<!-- 2014-04-08 Tue 02:38 -->
+<!-- 2014-04-08 Tue 03:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="generator" content="Org-mode"/>
 <meta name="author" content="Jim Blomo"/>
@@ -310,22 +310,23 @@ for the JavaScript code in this tag.
 <li><a href="#sec-35">35. EMR</a></li>
 <li><a href="#sec-36">36. Elastic MapReduce</a></li>
 <li><a href="#sec-37">37. mrjob provides</a></li>
-<li><a href="#sec-38">38. Settings</a></li>
-<li><a href="#sec-39">39. Bootstrap</a></li>
-<li><a href="#sec-40">40. Book Keeping</a></li>
-<li><a href="#sec-41">41. Tracking</a></li>
-<li><a href="#sec-42">42. EMR Pricing</a>
+<li><a href="#sec-38">38. How To</a></li>
+<li><a href="#sec-39">39. Settings</a></li>
+<li><a href="#sec-40">40. Bootstrap</a></li>
+<li><a href="#sec-41">41. Book Keeping</a></li>
+<li><a href="#sec-42">42. Tracking</a></li>
+<li><a href="#sec-43">43. EMR Pricing</a>
 <ul>
-<li><a href="#sec-42-1">42.1. Typical usage</a></li>
-<li><a href="#sec-42-2">42.2. Job Flow Pooling</a>
+<li><a href="#sec-43-1">43.1. Typical usage</a></li>
+<li><a href="#sec-43-2">43.2. Job Flow Pooling</a>
 <ul>
-<li><a href="#sec-42-2-1">42.2.1. Pooling</a></li>
+<li><a href="#sec-43-2-1">43.2.1. Pooling</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-43">43. mrjob Workflow</a></li>
-<li><a href="#sec-44">44. Thank You!</a></li>
+<li><a href="#sec-44">44. mrjob Workflow</a></li>
+<li><a href="#sec-45">45. Thank You!</a></li>
 </ul>
 </div>
 </div>
@@ -1131,7 +1132,7 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 <ul class="org-ul">
 <li>This is a little out of the scope of this tutorial
 </li>
-<li>Just know that not all types of data are amenible to MapReduce, and
+<li>Just know that not all types of data are amenable to MapReduce, and
 </li>
 </ul>
 <p>
@@ -1204,7 +1205,7 @@ result
 <h3 id="sec-22-1"><span class="section-number-3">22.1</span> Example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
 <div class="outline-text-3" id="text-22-1">
 <ul class="org-ul">
-<li>code/top<sub>titles</sub>.py
+<li><code>code/top\_titles.py</code>
 </li>
 </ul>
 </div>
@@ -1216,7 +1217,7 @@ result
 <ul class="org-ul">
 <li>Please complete exercise 2
 </li>
-<li>Fill in <code>code/title\_counts.py</code>
+<li>Fill in <code>code/count\_titles.py</code>
 </li>
 <li>Examine and run with <code>code/top\_titles.py</code>
 </li>
@@ -1227,7 +1228,7 @@ result
 <h2 id="sec-24"><span class="section-number-2">24</span> Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
 <div class="outline-text-2" id="text-24">
 <ul class="org-ul">
-<li><code>git checkout ex1</code>
+<li><code>git checkout ex2</code>
 </li>
 <li>yield a tuple tagged with either 'A' or 'V'
 </li>
@@ -1562,8 +1563,22 @@ or writing your own
 </div>
 </div>
 <div id="outline-container-sec-38" class="outline-2">
-<h2 id="sec-38"><span class="section-number-2">38</span> Settings&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<h2 id="sec-38"><span class="section-number-2">38</span> How To&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
 <div class="outline-text-2" id="text-38">
+<div class="org-src-container">
+
+<pre class="src src-shell">python code/unique_review.py -r emr -c mrjob.conf s3://i290-jblomo/data/selected_reviews.json.gz
+</pre>
+</div>
+<ul class="org-ul">
+<li>Simply specify <code>-r emr</code>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-39" class="outline-2">
+<h2 id="sec-39"><span class="section-number-2">39</span> Settings&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-39">
 <ul class="org-ul">
 <li>Instance types
 </li>
@@ -1578,9 +1593,9 @@ or writing your own
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-39" class="outline-2">
-<h2 id="sec-39"><span class="section-number-2">39</span> Bootstrap&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-39">
+<div id="outline-container-sec-40" class="outline-2">
+<h2 id="sec-40"><span class="section-number-2">40</span> Bootstrap&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-40">
 <ul class="org-ul">
 <li>use of # for file uploads
 </li>
@@ -1591,9 +1606,9 @@ or writing your own
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-40" class="outline-2">
-<h2 id="sec-40"><span class="section-number-2">40</span> Book Keeping&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-40">
+<div id="outline-container-sec-41" class="outline-2">
+<h2 id="sec-41"><span class="section-number-2">41</span> Book Keeping&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-41">
 <ul class="org-ul">
 <li>&#x2013;output-dir s3://output-bucket/path/
 </li>
@@ -1604,9 +1619,9 @@ or writing your own
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-41" class="outline-2">
-<h2 id="sec-41"><span class="section-number-2">41</span> Tracking&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="two_col">two_col</span></span></h2>
-<div class="outline-text-2" id="text-41">
+<div id="outline-container-sec-42" class="outline-2">
+<h2 id="sec-42"><span class="section-number-2">42</span> Tracking&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="two_col">two_col</span></span></h2>
+<div class="outline-text-2" id="text-42">
 <ul class="org-ul">
 <li>mrjob opens an SSH tunnel to the master node for Hadoop stats
 </li>
@@ -1619,9 +1634,9 @@ or writing your own
 </div>
 </div>
 </div>
-<div id="outline-container-sec-42" class="outline-2">
-<h2 id="sec-42"><span class="section-number-2">42</span> EMR Pricing&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-42">
+<div id="outline-container-sec-43" class="outline-2">
+<h2 id="sec-43"><span class="section-number-2">43</span> EMR Pricing&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-43">
 <ul class="org-ul">
 <li>Job flows are billed hourly, rounding <b>up</b>
 </li>
@@ -1631,9 +1646,9 @@ or writing your own
 <p><img src="img/jobflow-no-pooling.png"  alt="jobflow-no-pooling.png"/></p>
 </div>
 </div>
-<div id="outline-container-sec-42-1" class="outline-3">
-<h3 id="sec-42-1"><span class="section-number-3">42.1</span> Typical usage&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-42-1">
+<div id="outline-container-sec-43-1" class="outline-3">
+<h3 id="sec-43-1"><span class="section-number-3">43.1</span> Typical usage&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-43-1">
 <ul class="org-ul">
 <li>Spin up a job flow, when finished, kill it
 </li>
@@ -1644,9 +1659,9 @@ or writing your own
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-42-2" class="outline-3">
-<h3 id="sec-42-2"><span class="section-number-3">42.2</span> Job Flow Pooling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
-<div class="outline-text-3" id="text-42-2">
+<div id="outline-container-sec-43-2" class="outline-3">
+<h3 id="sec-43-2"><span class="section-number-3">43.2</span> Job Flow Pooling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-43-2">
 <ul class="org-ul">
 <li>Don't end job flow after job, share remaining time
 </li>
@@ -1660,9 +1675,9 @@ or writing your own
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-42-2-1" class="outline-4">
-<h4 id="sec-42-2-1"><span class="section-number-4">42.2.1</span> Pooling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h4>
-<div class="outline-text-4" id="text-42-2-1">
+<div id="outline-container-sec-43-2-1" class="outline-4">
+<h4 id="sec-43-2-1"><span class="section-number-4">43.2.1</span> Pooling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h4>
+<div class="outline-text-4" id="text-43-2-1">
 <ul class="org-ul">
 <li>Billed on the hour, so don't give up early!
 </li>
@@ -1677,9 +1692,9 @@ or writing your own
 </div>
 </div>
 </div>
-<div id="outline-container-sec-43" class="outline-2">
-<h2 id="sec-43"><span class="section-number-2">43</span> mrjob Workflow&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-43">
+<div id="outline-container-sec-44" class="outline-2">
+<h2 id="sec-44"><span class="section-number-2">44</span> mrjob Workflow&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-44">
 <ul class="org-ul">
 <li>Develop locally on subset of data
 </li>
@@ -1690,9 +1705,9 @@ or writing your own
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-44" class="outline-2">
-<h2 id="sec-44"><span class="section-number-2">44</span> Thank You!&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-44">
+<div id="outline-container-sec-45" class="outline-2">
+<h2 id="sec-45"><span class="section-number-2">45</span> Thank You!&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-45">
 <ul class="org-ul">
 <li>Jim Blomo, Engineering Manager Yelp
 </li>
@@ -1706,7 +1721,7 @@ or writing your own
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jim Blomo</p>
-<p class="date">Created: 2014-04-08 Tue 02:38</p>
+<p class="date">Created: 2014-04-08 Tue 03:30</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 23.4.1 (<a href="http://orgmode.org">Org</a> mode 8.0.6)</p>
 <p class="xhtml-validation"><a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a></p>
 </div>
