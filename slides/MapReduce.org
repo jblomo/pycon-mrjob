@@ -340,7 +340,7 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
   + Write single threaded program (not mrjob) to transform it
 ** Not covered :notes:
    + This is a little out of the scope of this tutorial
-   + Just know that not all types of data are amenible to MapReduce, and
+   + Just know that not all types of data are amenable to MapReduce, and
    Hadoop/mrjob specifically
 
 * Most Common Title Words :slide:
@@ -372,15 +372,15 @@ V,1012,1
         runner.stream_output()
 #+end_src
 ** Example :notes:
-   + code/top_titles.py
+   + =code/top\_titles.py=
 
 * *BREAK* :slide:
   + Please complete exercise 2
-  + Fill in =code/title\_counts.py=
+  + Fill in =code/count\_titles.py=
   + Examine and run with =code/top\_titles.py=
 
 * Solution :slide:
-  + =git checkout ex1=
+  + =git checkout ex2=
   + yield a tuple tagged with either 'A' or 'V'
   + When iterating through values, extract the data from the tagged tuple
 
