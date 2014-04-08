@@ -381,6 +381,22 @@ V,1012,1
   + yield a tuple tagged with either 'A' or 'V'
   + When iterating through values, extract the data from the tagged tuple
 
+* Yelp Data :slide:
+  + Subset of data available in  =yelp/selected_reviews.json==
+#+begin_src json
+{"votes": {"funny": 3, "useful": 3, "cool": 2},
+ "user_id": "dYtkphUrU7S2_bjif6k2uA",
+ "review_id": "gjtWdiEMMfoOTCfdd3hPmA",
+ "stars": 4,
+ "date": "2009-04-24",
+ "text": "Man, if these guys were trying to replicate a gringo bar in Mexico...",
+ "type": "review",
+ "business_id": "RqbSeoeqXTwts5pfhw7nJg"}
+#+end_src
+** More Data :notes:
+   + You may run with more data by downloading and extracting from
+     http://www.yelp.com/dataset_challenge
+
 * Multi-Step :slide:
   + Not all computations can be done in a single MapReduce step
   + Map Input: <key, value>
@@ -435,13 +451,14 @@ V,1012,1
   + Please complete exercise 3
   + Fill in =code/unique\_review.py=
   + Run with data in =yelp/selected_reviews.json=
-** More Data :notes:
-   + You may run with more data by downloading and extracting from
-     http://www.yelp.com/dataset_challenge
+
+* Solution :slide:
+  + Extract words from the review comment field
+  + Group them by word, keep those that are unique
+  + Group them by review, return sum
 
 * Jaccard Coefficient :slide:
-  + Asymmetric binary similarity
-  + More commonly used for calculating set similarity
+  + Commonly used for calculating set similarity
   + =|intersection| / |union|=
   + "Jim likes pizza" | "Shreyas likes pizza"
 ** Jaccard :notes:
@@ -454,8 +471,12 @@ V,1012,1
   + Find users >= 0.5 similarity
   + User Similarity: Jaccard similarity of businesses reviewed
   + {BizA, BizB, BizC} ~ {BizF, BizB, BizG}
+  + Hint: Users with > 0 similarity will share at least 1 business
 
-
+* *BREAK* :slide:
+  + Please complete exercise 4
+  + Fill in =code/user\_similarity.py=
+  + Run with data in =yelp/selected_reviews.json=
 
 * EMR :slide:
   + We've been using local mode
