@@ -1,7 +1,7 @@
 * Snakes on a Hadoop :slide:
   + PyCon 2014
   + Jim Blomo
-  + TODO github URL
+  + https://jblomo.github.io/pycon-mrjob/slides/MapReduce.html#sec-1
 
 * Let's Jump In :slide:
 #+begin_src shell
@@ -19,14 +19,17 @@ pip install -r requirements.txt
   + What is MapReduce?
   + Writing MapReduce in mrjob
   + Exercise 1, user activity
-  + How does mrjob work?
-  + Exercise 2, user-user similarity
-  + mrjob in the cloud
-  + Exercise 3, Amazon EMR
+  + Joins and Programmatic usage
+  + Exercise 2, self-joins
+  + Multi-step jobs & Protocols
+  + Exercise 3, finding Yelp reviews with unique words
+  + Exploring user-user similarity
+  + Exercise 4, putting it all together
+  + Deploying on AWS
 ** Sections :notes:
    + I will give some background, answer questions (35 minutes)
    + I'll introduce a script (5 minutes)
-   + The execrise will have audience extending the script to get it working (15 minutes)
+   + The exercise will have audience extending the script to get it working (15 minutes)
    + We'll go over an example solution (5 minutes)
 
 * Interest? :slide:
@@ -482,7 +485,7 @@ V,1012,1
   + Map user to list of businesses reviewed
   + Map business to list of user descriptions
   + Find users with similarity
-  + Deduplicate
+  + De-duplicate
 ** Efficiency :notes:
    + We do duplicate work, but the trade-off is parallelism in the best case
    (not many users are overlapping with each other for dozens of reviews)
@@ -552,12 +555,12 @@ V,1012,1
   + Jim Blomo, Engineering Manager Yelp
   + @jimblomo
 
-#+STYLE: <link rel="stylesheet" type="text/css" href="production/common.css" />
-#+STYLE: <link rel="stylesheet" type="text/css" href="production/screen.css" media="screen" />
-#+STYLE: <link rel="stylesheet" type="text/css" href="production/projection.css" media="projection" />
-#+STYLE: <link rel="stylesheet" type="text/css" href="production/color-blue.css" media="projection" />
-#+STYLE: <link rel="stylesheet" type="text/css" href="production/presenter.css" media="presenter" />
-#+STYLE: <link href='http://fonts.googleapis.com/css?family=Lobster+Two:700|Yanone+Kaffeesatz:700|Open+Sans' rel='stylesheet' type='text/css'>
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="production/common.css" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="production/screen.css" media="screen" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="production/projection.css" media="projection" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="production/color-blue.css" media="projection" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="production/presenter.css" media="presenter" />
+#+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Lobster+Two:700|Yanone+Kaffeesatz:700|Open+Sans' rel='stylesheet' type='text/css'>
 
 #+BEGIN_HTML
 <script type="text/javascript" src="production/org-html-slideshow.js"></script>
