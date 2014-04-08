@@ -317,6 +317,15 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 ** Demo :notes:
    + =csv_readline= takes in a CSV line, return a list of values
 
+* *BREAK* :slide:
+  + Please complete exercise 1
+  + Fill in =code/top\_pages.py=
+
+* Solution :slide:
+  + =git checkout ex1=
+  + yield the vroot ID and the number of times seen in that line (1)
+  + sum the times seen, check threshold, yield pair
+
 * Discussion: User Visits :slide:animate:
   + Can we calculate the number of visits per user?
   + No! User information on different line
@@ -326,19 +335,40 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
   + MapReduce needs all information on one line
   + This data format has user information on different line than visit
   + Write single threaded program (not mrjob) to transform it
+** Not covered :notes:
+   + This is a little out of the scope of this tutorial
+   + Just know that not all types of data are amenible to MapReduce, and
+   Hadoop/mrjob specifically
 
 * Most Common Title Words :slide:
   + Vroots (pages) have titles
-  + What are the *10* most common title words?
-  + Must create this program from scratch
+  + What are the titles of the 10 most browsed nodes?
 
-* Extra Credit :slide:
-  + What *titles* were most browsed?
-  + Which URLs co-occured most frequently?
+* Joins :slide:two_col:
+  + Sometimes need to join against two data sets
+  + In our case, it is the same file, different record types
 
-* Review :slide:
-  + Fill in =top_pages.py=
-  + Write =top_users.py=
+#+begin_src csv
+A,1012,1,"Outlook Development","/outlookdev"
+...
+V,1012,1
+#+end_src
+
+* Running Programatically :slide:
+  + We've been running in the command line
+  + How to process the output of an MRJob inline
+  + Testing, insert results into a database, do further processing on all of
+  result
+
+* MRJob Class :slide:
+#+begin_src python
+    mr_job = MRJobSubclass(args=[...])
+    with mr_job.make_runner() as runner:
+        runner.run()
+        runner.stream_output()
+#+end_src
+** Example :notes:
+   + code/top_titles.py
 
 * Multi-Step :slide:
   + Not all computations can be done in a single MapReduce step
