@@ -347,6 +347,7 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 * Joins :slide:two_col:
   + Sometimes need to join against two data sets
   + In our case, it is the same file, different record types
+  + mrjob can pass serializable objects between Map and Reduce steps
 
 #+begin_src csv
 A,1012,1,"Outlook Development","/outlookdev"
@@ -370,6 +371,16 @@ V,1012,1
 ** Example :notes:
    + code/top_titles.py
 
+* *BREAK* :slide:
+  + Please complete exercise 2
+  + Fill in =code/title\_counts.py=
+  + Examine and run with =code/top\_titles.py=
+
+* Solution :slide:
+  + =git checkout ex1=
+  + yield a tuple tagged with either 'A' or 'V'
+  + When iterating through values, extract the data from the tagged tuple
+
 * Multi-Step :slide:
   + Not all computations can be done in a single MapReduce step
   + Map Input: <key, value>
@@ -388,7 +399,7 @@ V,1012,1
    + Find average presidential donations by candidate, then normalize averages
 
 * Unique Review :slide:animate:
-  + Review ID with the most unique words 
+  + Count unique words per review
   + Map Input: <line number, text>
   + Map Output: <word, review\_id>
   + Reducer Input: <word, [review\_ids]>
@@ -411,65 +422,22 @@ V,1012,1
    + Given this mapper output, what *must* the reducer input be?
    + What are we calculating?
 
-** Step 3: Max :slide:animate:
-   + Map Input: <review\_id, sum>
-   + Map Output: <"MAX", [sum, review\_id]>
-   + Reducer Input: <"MAX", [[sum, review\_id],...]>
-   + Reducer Output: <review\_id, sum> of the max(sum)
-** Questions :notes:
-   + Given the reducer output, what *must* the mapper input be (for chained
-     MapReduce steps)
-   + We're calculating a statistic over what portion of the data set?
-   + What stat are we calculating?
+* INPUT_PROTOCOL :slide:
+  + Previous examples manually parsed line
+  + mrjob provides "protocols" to automatically parse and recover from error
+  + Specify the class desired to parse the lines
+** Examples :notes:
+   + We're using a JSON object per line. Other options include JSON key-values,
+   or writing your own
+   + Instead of raw text, =record= will now be a Python dict
 
-* Lab: mrjob :slide:
-  + Understand =review_word_count.py=
-  + Find review with most unique words
-    + Fill in =unique_review.py=
-  + Find similar users
-    + Write =user_similarity.py=
-** mrjob :notes:
-   + Using the Yelp Academic Dataset
-   + In lecture, we covered the steps for most unique words
-   + Use Jaccard similarity for user\_similarity
-
-* Data :slide:
-  + ischool: =~jblomo/yelp_academic_dataset.json=
-  + May copy or use in place
-** Agreement :notes:
-   + Data set only for use academic purposes
-   + [[http://www.yelp.com/academic_dataset][Yelp Dataset]]
-
-* Understand review\_word\_count.py :slide:
-#+begin_src bash
-$ python review_word_count.py yelp_academic_dataset.json
-
-no configs found; falling back on auto-configuration
-creating tmp directory /tmp/review_word_count.jim.20130215.071901.095847
-reading from file
-> /home/jim/src/datamining290/code/venv/bin/python review_word_count.py --step-num=0 --mapper /tmp/review_word_count.jim.20130215.071901.095847/input_part-00000
-writing to /tmp/review_word_count.jim.20130215.071901.095847/step-0-mapper_part-00000
-Counters from step 1:
-  (no counters found)
-...
-Streaming final output from /tmp/review_word_count.jim.20130215.071901.095847/output
-"4"	2
-"5"	1
-"50"	1
-"6"	2
-"7"	2
-"70s"	1
-"9"	2
-"a"	46
-"abbey"	4
-"able"	1
-"about"	4
-#+end_src
-
-* Fill in unique\_review.py :slide:
-  + Mutli-step map reduce
-  + Steps are explained in lecture
-  + Skeleton in code
+* *BREAK* :slide:
+  + Please complete exercise 3
+  + Fill in =code/unique\_review.py=
+  + Run with data in =yelp/selected_reviews.json=
+** More Data :notes:
+   + You may run with more data by downloading and extracting from
+     http://www.yelp.com/dataset_challenge
 
 * Jaccard Coefficient :slide:
   + Asymmetric binary similarity
