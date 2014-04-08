@@ -34,7 +34,7 @@ class UniqueReview(MRJob):
         reducer1: <key, [values]>
         mapper2: ...
         """
-        return [self.mr(self.extract_words, self.count_reviews),
+        return [self.mr(mapper=self.extract_words, reducer=self.count_reviews),
                 self.mr(reducer=self.count_unique_words)]
 
 if __name__ == '__main__':
