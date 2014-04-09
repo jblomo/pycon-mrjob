@@ -27,16 +27,20 @@ pip install -r requirements.txt
   + Exercise 4, putting it all together
   + Deploying on AWS
 ** Sections :notes:
-   + I will give some background, answer questions (35 minutes)
-   + I'll introduce a script (5 minutes)
-   + The exercise will have audience extending the script to get it working (15 minutes)
-   + We'll go over an example solution (5 minutes)
+   + I will give some background, answer questions
+   + I'll introduce a script
+   + The exercise will have audience extending the script to get it working
+   + We'll go over an example solution
 
 * Interest? :slide:
   + What are you interested in?
   + What are you hoping to get out of this talk?
+  + Introduce yourself to neighbor
 ** Audience participation! :notes:
    + This will help focus this talk
+   + You'll run into bugs, neighbor can be a good person to ask!
+   + Name, years using Python, favorite Python function
+   + I'll be helping out as much as I can, but help each other out first!
 
 * Run a Test :slide:
 #+begin_src html
@@ -450,6 +454,40 @@ V,1012,1
    or writing your own
    + Instead of raw text, =record= will now be a Python dict
 
+* Protocols :slide:
+#+begin_src python
+class JSONValueProtocol(object):
+    """Encode ``value`` as a JSON and discard ``key``
+    (``key`` is read in as ``None``).
+    """
+    def read(self, line):
+        return (None, json.loads(line))
+
+    def write(self, key, value):
+        return json.dumps(value)
+#+end_src
+** Writing your own :notes:
+   + Protocols are straightforward to write
+   + At their heart contain =read= and =write= method
+   + For example, we've implemented a Protocol for MySQL INSERT statements, so
+   can easily process data created by mysqldump
+
+* Protcols and InputFormats :slide:
+  + mrjob operates on lines of tab delimited text
+  + =InputFormat= translates data stored on HDFS to Text
+  + =Protocols= translates a line into a Python variable
+** Limitations :notes:
+   + line oriented is limitation of Hadoop Streaming
+   + It sends data through stdin/stdout. Sometimes people ask if they can
+     process an XML file with arbitrary line breaks
+   + Not what mrjob is good at. Hadoop may break at any point without extra
+   configuration
+   + Some of you may be familiar with Hadoop's =InputFormat= or =OutputFormat=.
+   They serve a slightly different purpose than =Protocols=
+   + =InputFormats= can be used to extract data which is not text on disk, for
+   example SequenceFiles, or from data which is not simply stored in a
+   directory, like providing a Manifest file.
+
 * *BREAK* :slide:
   + Please complete exercise 3
   + Fill in =code/unique\_review.py=
@@ -459,6 +497,39 @@ V,1012,1
   + Extract words from the review comment field
   + Group them by word, keep those that are unique
   + Group them by review, return sum
+
+* Quantifying Intuitions :slide:
+  + Data Scientists translate ideas into math
+  + Often want to suggest "similar" items or users
+  + But what does "similar" mean?
+** Skills :notes:
+   + One of the core skill of a DS is translating an intuition into a
+   quantifiable entity
+   + An example is for recommendation systems. If you want to find people to
+   follow, or friends to recommend, you often want to find "similar" people to
+   yourself
+   + But what does similar mean? (Ask)
+   + In order to recommend one product over another, or sort in any useful way,
+   you need to associate a number with that similarity
+
+* Simple: Two Points :slide:animate:
+  + Sometimes can translate entities to points
+  + What is a similarity metric between these two?
+  + Euclidean distance
+  + sqrt((x_1-x_2)**2 + (y_1-y_2)**2)
+** Start :notes:
+   + For example intracity geographic distance
+   + Or house price and square feet
+   + Called "vector space" because a point also describes a vector, which you
+   can get interesting information about (magnitude, angles, etc)
+   + Simple starting point: Euclidean distance
+   + Has many downsides, but is an example of translating a concept of
+   similarity to a number
+   + Interestingly the notions of distance and similarity are two sides of the
+   same coin.
+   + Also called the L_2 norm because we're taking the second root. We could
+   cube and take the cube root... leads to different semantics
+   + How to measure if points don't map so easily to this "vector space"?
 
 * Jaccard Coefficient :slide:
   + Commonly used for calculating set similarity
@@ -470,10 +541,21 @@ V,1012,1
    1. calculate # in union
    1. divide
 
+* Jaccard of Users :slide:
+  + We take the set of businesses reviewed by two users
+  + Value if users have no businesses in common?
+  + All businesses?
+** Answers :notes:
+   + None = 0
+   + All = 1
+
 * Write user\_similarity.py :slide:
   + Find users >= 0.5 similarity
   + User Similarity: Jaccard similarity of businesses reviewed
   + {BizA, BizB, BizC} ~ {BizF, BizB, BizG}
+** Input :notes:
+   + Takes as input the list of reviews that we have
+   + You'll be more on your own for this one, very limited skeleton
 
 * *BREAK* :slide:
   + Please complete exercise 4
@@ -496,33 +578,62 @@ V,1012,1
   + What about actually processing Big Data?
 
 * Elastic MapReduce :slide:
-  + Service by Amazon
+  + Hadoop as a service by Amazon
   + Installs and sets up Hadoop cluster
-  + Ability to run scripts at setup
+  + JobFlow: instance of this cluster
+  + Jobs: one command with series of MapReduce steps
+** Nomenclature :notes:
+   + API to bring up a cluster of N machines
+   + Amazon provides tech for registering them all together, running Bootstrap
+   commands, terminating them, etc
+   + This cluster is called a JobFlow
+   + We'll discuss what it means to have one JobFlow with multiple Jobs in a bit
 
 * mrjob provides :slide:
   + Encode standard settings as config file or arguments
   + Uploads and runs bootstrap commands w/ local integration
   + Transparent inter-job bookkeeping
   + Tracking, error collection, job sharing
-
-* How To :slide:
-#+begin_src shell
-python code/unique_review.py -r emr -c mrjob.conf s3://i290-jblomo/data/selected_reviews.json.gz
-#+end_src
-  + Simply specify =-r emr=
+** Benefits :notes:
+   + A config file is easy to install across developers. Yelp has 3 main ones:
+   standard, memory-intensive, and cpu-intensive.
+   + Otherwise all of your developers must learn the different options for the
+   AWS API
+   + Often you'll need to make files available to EMR via S3, for example custom
+   packages you'd like to install.  EMR cannot reach back out to your localhost.
+   mrjob will automate the uploading and management of these files.
+   + mrjob "tags" JobFlows with information about the user running them, and has
+   tools for aggregating those metrics.
+   + It uses the tags to find compatible JobFlows, in the case where it will
+   share an existing one.
 
 * Settings :slide:
   + Instance types
-  + EMR keys
+  + AWS keys
   + Location for logs
   + SSH key
   + Bootstrap behavior
+  + Setup commands per job
+** Info :notes:
+  + Instance types :: how beefy a machine do you want to run? Is your load
+  memory or CPU bound? Yelp uses a few standard options, starting with m1.large
+  + EMR keys :: These are used to communicate with AWS to start your instance
+  + Location for logs :: Where in S3 do the results of the run go? EMR logs results of
+  bootstrap actions, Hadoop logs results of running the query. 
+  + SSH key :: Once the instance is started, mrjob can connect to it via SSH and
+  stream logs, and setup a tunnel for HTTP traffic to use the Hadoop interface
+  + Bootstrap behavior :: Often you'll need to install libraries, or upload your
+  own repository. Since your code is running on the entire cluster at once,
+  this install needs to happen on all machines
 
-* Bootstrap :slide:
-  + use of # for file uploads
-  + location of runs (different than raw bootstrap commands)
-  + installation of python packages
+* Bootstrap vs Setup :slide:
+  + Bootstrap runs at VM creation
+  + Setup runs at the start of each job
+  + Bootstrap for run-once non-code config
+** Setup vs Bootstrap :notes:
+   + When repeatedly changing and testing your code, you'll want a new version
+   deployed to the machine each time. That is what setup commands are for: parts
+   of your application that change
 
 * Book Keeping :slide:
   + --output-dir s3://output-bucket/path/
@@ -551,6 +662,12 @@ python code/unique_review.py -r emr -c mrjob.conf s3://i290-jblomo/data/selected
    + Only shut down idle job flows at the end of the hour
    + If another job comes up, reuse idle flow
    + Also makes job faster to spin up BONUS for developers
+
+* How To :slide:
+#+begin_src shell
+python code/unique_review.py -r emr -c mrjob.conf s3://i290-jblomo/data/selected_reviews.json.gz
+#+end_src
+  + Simply specify =-r emr=
 
 * mrjob Workflow :slide:
   + Develop locally on subset of data
