@@ -25,7 +25,7 @@ class CountTitles(MRJob):
         if cell[0] == 'V':
             yield ### FILL IN
                   # How to "tag" this value for a given Key?
-        elif cell[0] == 'A'
+        elif cell[0] == 'A':
             yield ### FILL IN
                   # How to "tag" this value for a given Key?
 

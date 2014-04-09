@@ -12,10 +12,11 @@ To run:
 from count_titles import CountTitles
 import csv
 
-mr_job = CountTitles(args=['-r', 'local', 'msanon/anonymous-msweb.data.gz'])
+# run in local mode with the input being MS browsing data
+mr_job = CountTitles(args=['--runner', 'local', 'msanon/anonymous-msweb.data.gz'])
 with mr_job.make_runner() as runner:
     runner.run()
     title_counts = [mr_job.parse_output_line(line) for line in
             runner.stream_output()]
-    results = sorted(title_counts, key=lambda (k,v): v)
+    results = sorted(title_counts, key=lambda (k,v): v, reverse=True)
     print results[:10]

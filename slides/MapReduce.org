@@ -6,6 +6,7 @@
 * Let's Jump In :slide:
 #+begin_src shell
 git clone https://github.com/jblomo/pycon-mrjob.git
+cd pycon-mrjob
 virtualenv venv
 . venv/bin/activate
 pip install -r requirements.txt
@@ -44,7 +45,9 @@ pip install -r requirements.txt
 
 * Run a Test :slide:
 #+begin_src html
-python venv/lib/python2.7/site-packages/mrjob/examples/mr_word_freq_count.py requirements.txt
+echo hello | \
+python \
+venv/lib/python2.7/site-packages/mrjob/examples/mr_word_freq_count.py
 #+end_src
 
 * Yelp has a problem :slide:
@@ -75,6 +78,7 @@ python venv/lib/python2.7/site-packages/mrjob/examples/mr_word_freq_count.py req
   + There are many ways to deal with these challenges
   + Often, people would "roll" their own solutions depending on the problem
   + Google implemented a generic solution, shared idea
+
 [[file:img/mapreduce-paper.png]]
 ** Dependencies :notes:
    + Did you have a super-computer?
@@ -95,7 +99,7 @@ python venv/lib/python2.7/site-packages/mrjob/examples/mr_word_freq_count.py req
 
 * MapReduce :slide:
   + Map :: Extract a property to summarize over
-  + Reduce :: Summarize all items with a particular propery
+  + Reduce :: Summarize all items with a particular property
 
 
   + Simple: Each operation stateless
@@ -217,6 +221,8 @@ save		1
 #+end_src
 ** Distribute :notes:
    + Now it is easy to distribute, and can handle all the =load= at once
+   + When mrjob is running, you'll notice debugging output, including a "sort"
+     step. This is why.
 
 ** Inputs :slide:
    + MapReduce distributes computing power by distributing input
@@ -260,14 +266,19 @@ save		1
     app.logger.info(json.dumps(log_data))
 #+end_src
 
-* Data :slide:
-  + [[http://archive.ics.uci.edu/ml/machine-learning-databases/anonymous/][Anonymous web data from www.microsoft.com]]
-  + Contains information in CSV format
-  + use mrjob MapReduce Framework to find answers
-** Format :notes:
+
+* Word Count :slide:
+  + Example: frequency of every word used in a text
+  + Map: Extract the words from a line, yield the number of times we've seen it
+  + Reduce: For each word, summarize those counts
+** Another example :notes:
+   + Let's take a look at another example
+   + instead of counting actions, 1 per line, now we want to count words
+   + potentially many per line
+   + Same general idea though. Tunnel vision on one line (even one word!)
 
 * [[http://packages.python.org/mrjob/][mrjob]] :slide:
-#+begin_src html
+#+begin_src python
 from mrjob.job import MRJob
 
 class MRWordCounter(MRJob):
@@ -282,12 +293,35 @@ if __name__ == '__main__':
     MRWordCounter.run()
 #+end_src
     More documentation: http://pythonhosted.org/mrjob/
-** Relation to HW :notes:
+** Relation to example :notes:
    + =mapper= takes keys and values
    + =reducer= takes the keys output by the mapper, and all relevant values
    + =split= takes a string and splits on spaces, giving words
    + =yield= essentially returns <key,value> pairs, but can be called more than
      once
+
+* Data :slide:
+  + [[http://archive.ics.uci.edu/ml/machine-learning-databases/anonymous/][Anonymous web data from www.microsoft.com]]
+  + Contains information in CSV format
+  + use mrjob MapReduce Framework to find answers
+** Format :notes:
+   + Open up file
+   + File tells us information about a "Vroot"
+   + Vroot is just a fancy name for a page with a numeric ID
+   + each line is different information about the vroot:
+   + A: attributes of a vroot (id, title, url)
+   + C: customer information, following which are the Visits that customer made
+     to the vroot
+   + V: a visit to a vroot (id)
+   + Before we talked about actions of redirecting, saving, etc. Now we have a
+     lot more different actions: each vroot with an ID
+
+** Output :slide:
+   + vroot ID => number of visits
+   + Group by the vroot ID
+   + Summarize all of the visits
+** Summary :notes:
+   + and what does it look to actually run this?
 
 ** Output :slide:
 #+begin_src bash
@@ -326,9 +360,11 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 
 * *BREAK* :slide:
   + Please complete exercise 1
-  + Fill in =code/top\_pages.py=
+  + Fill in =code/top_pages.py=
+  + Take in web browsing data, output vroot to number of visits
 
 * Solution :slide:
+  + =git commit -m "my solution" -a=
   + =git checkout ex1=
   + yield the vroot ID and the number of times seen in that line (1)
   + sum the times seen, check threshold, yield pair
@@ -351,10 +387,11 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
   + Vroots (pages) have titles
   + What are the titles of the 10 most browsed nodes?
 
-* Joins :slide:two_col:
+* Joins :slide:
   + Sometimes need to join against two data sets
   + In our case, it is the same file, different record types
   + mrjob can pass serializable objects between Map and Reduce steps
+  + You can "tag" values with identifiers, eg. title or visit
 
 #+begin_src csv
 A,1012,1,"Outlook Development","/outlookdev"
@@ -366,7 +403,7 @@ V,1012,1
   + We've been running in the command line
   + How to process the output of an MRJob inline
   + Testing, insert results into a database, do further processing on all of
-  result
+    result
 
 * MRJob Class :slide:
 #+begin_src python
@@ -380,16 +417,19 @@ V,1012,1
 
 * *BREAK* :slide:
   + Please complete exercise 2
-  + Fill in =code/count\_titles.py=
-  + Examine and run with =code/top\_titles.py=
+  + What are the titles of the 10 most browsed nodes?
+  + Fill in =code/count_titles.py=
+  + Examine and run with =code/top_titles.py=
 
 * Solution :slide:
   + =git checkout ex2=
   + yield a tuple tagged with either 'A' or 'V'
   + When iterating through values, extract the data from the tagged tuple
+** Other possibilities :notes:
+   + Can tag with a dictionary instead
 
 * Yelp Data :slide:
-  + Subset of data available in  =yelp/selected_reviews.json==
+  + Subset of data available in  =yelp/selected_reviews.json.gz=
 #+begin_src json
 {"votes": {"funny": 3, "useful": 3, "cool": 2},
  "user_id": "dYtkphUrU7S2_bjif6k2uA",
@@ -423,10 +463,10 @@ V,1012,1
 
 * Unique Review :slide:animate:
   + Count unique words per review
-  + Map Input: <line number, text>
-  + Map Output: <word, review\_id>
-  + Reducer Input: <word, [review\_ids]>
-  + Reducer Output: <review\_id, 1> if the word is unique
+  + Map Input: <line number, review dictionary>
+  + Map Output: <word, review-id>
+  + Reducer Input: <word, [review-ids]>
+  + Reducer Output: <review-id, 1> if the word is unique
 ** Questions :notes:
    + For our purposes, what is always the mapper input?
    + What feature do we want to calculate first?
@@ -434,10 +474,10 @@ V,1012,1
    + What property about a review are we interested in?
 
 ** Step 2: Count Unique Words :slide:animate:
-   + Map Input: <review\_id, 1>
-   + Map Output: <review\_id, 1>
-   + Reducer Input: <review\_id, [1,1,...]>
-   + Reducer Output: <review\_id, sum>
+   + Map Input: <review-id, 1>
+   + Map Output: <review-id, 1>
+   + Reducer Input: <review-id, [1,1,...]>
+   + Reducer Output: <review-id, sum>
 ** Questions :notes:
    + Given the reducer output, what *must* the mapper input be (for chained
      MapReduce steps)
@@ -445,11 +485,12 @@ V,1012,1
    + Given this mapper output, what *must* the reducer input be?
    + What are we calculating?
 
-* INPUT_PROTOCOL :slide:
+* INPUT PROTOCOL :slide:
   + Previous examples manually parsed line
   + mrjob provides "protocols" to automatically parse and recover from error
   + Specify the class desired to parse the lines
 ** Examples :notes:
+   + Open up code/unique_review.py
    + We're using a JSON object per line. Other options include JSON key-values,
    or writing your own
    + Instead of raw text, =record= will now be a Python dict
@@ -472,7 +513,7 @@ class JSONValueProtocol(object):
    + For example, we've implemented a Protocol for MySQL INSERT statements, so
    can easily process data created by mysqldump
 
-* Protcols and InputFormats :slide:
+* Protocols and InputFormats :slide:
   + mrjob operates on lines of tab delimited text
   + =InputFormat= translates data stored on HDFS to Text
   + =Protocols= translates a line into a Python variable
@@ -490,7 +531,8 @@ class JSONValueProtocol(object):
 
 * *BREAK* :slide:
   + Please complete exercise 3
-  + Fill in =code/unique\_review.py=
+  + Fill in =code/unique_review.py=
+  + Output a review ID with how many unique words it used
   + Run with data in =yelp/selected_reviews.json=
 
 * Solution :slide:

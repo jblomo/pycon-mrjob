@@ -3,13 +3,24 @@ from mrjob.protocol import JSONValueProtocol
 
 import re
 
+# Use this regular expresion to break up text via findall()
 WORD_RE = re.compile(r"[\w']+")
 
 class UniqueReview(MRJob):
     INPUT_PROTOCOL = JSONValueProtocol
 
     def extract_words(self, _, record):
-        """Take in a record, filter by type=review, yield <word, review_id>"""
+        """Take in a record, filter by type=review, yield <word, review_id>
+        records look like:
+        {"votes": {"funny": 3, "useful": 3, "cool": 2},
+         "user_id": "dYtkphUrU7S2_bjif6k2uA",
+         "review_id": "gjtWdiEMMfoOTCfdd3hPmA",
+         "stars": 4,
+         "date": "2009-04-24",
+         "text": "Man, if these guys were trying to replicate a gringo bar in Mexico...",
+         "type": "review",
+         "business_id": "RqbSeoeqXTwts5pfhw7nJg"}
+        """
         if record['type'] == 'review':
             ###
             # TODO: for each word in the review, yield the correct key,value

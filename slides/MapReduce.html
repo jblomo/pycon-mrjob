@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>MapReduce</title>
-<!-- 2014-04-08 Tue 11:03 -->
+<!-- 2014-04-08 Tue 20:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="generator" content="Org-mode"/>
 <meta name="author" content="Jim Blomo"/>
@@ -234,144 +234,155 @@ for the JavaScript code in this tag.
 <li><a href="#sec-11-8">11.8. Correct Log Style</a></li>
 </ul>
 </li>
-<li><a href="#sec-12">12. Data</a>
+<li><a href="#sec-12">12. Word Count</a>
 <ul>
-<li><a href="#sec-12-1">12.1. Format</a></li>
+<li><a href="#sec-12-1">12.1. Another example</a></li>
 </ul>
 </li>
 <li><a href="#sec-13">13. mrjob</a>
 <ul>
-<li><a href="#sec-13-1">13.1. Relation to HW</a></li>
-<li><a href="#sec-13-2">13.2. Output</a></li>
-<li><a href="#sec-13-3">13.3. Running</a></li>
+<li><a href="#sec-13-1">13.1. Relation to example</a></li>
 </ul>
 </li>
-<li><a href="#sec-14">14. Pages with &gt; 400 visits</a>
+<li><a href="#sec-14">14. Data</a>
 <ul>
-<li><a href="#sec-14-1">14.1. Demo</a></li>
+<li><a href="#sec-14-1">14.1. Format</a></li>
+<li><a href="#sec-14-2">14.2. Output</a></li>
+<li><a href="#sec-14-3">14.3. Summary</a></li>
+<li><a href="#sec-14-4">14.4. Output</a></li>
+<li><a href="#sec-14-5">14.5. Running</a></li>
 </ul>
 </li>
-<li><a href="#sec-15">15. <b>BREAK</b></a></li>
-<li><a href="#sec-16">16. Solution</a></li>
-<li><a href="#sec-17">17. Discussion: User Visits</a></li>
-<li><a href="#sec-18">18. Transform Data</a>
+<li><a href="#sec-15">15. Pages with &gt; 400 visits</a>
 <ul>
-<li><a href="#sec-18-1">18.1. Not covered</a></li>
+<li><a href="#sec-15-1">15.1. Demo</a></li>
 </ul>
 </li>
-<li><a href="#sec-19">19. Most Common Title Words</a></li>
-<li><a href="#sec-20">20. Joins</a></li>
-<li><a href="#sec-21">21. Running Programatically</a></li>
-<li><a href="#sec-22">22. MRJob Class</a>
+<li><a href="#sec-16">16. <b>BREAK</b></a></li>
+<li><a href="#sec-17">17. Solution</a></li>
+<li><a href="#sec-18">18. Discussion: User Visits</a></li>
+<li><a href="#sec-19">19. Transform Data</a>
 <ul>
-<li><a href="#sec-22-1">22.1. Example</a></li>
+<li><a href="#sec-19-1">19.1. Not covered</a></li>
 </ul>
 </li>
-<li><a href="#sec-23">23. <b>BREAK</b></a></li>
-<li><a href="#sec-24">24. Solution</a></li>
-<li><a href="#sec-25">25. Yelp Data</a>
+<li><a href="#sec-20">20. Most Common Title Words</a></li>
+<li><a href="#sec-21">21. Joins</a></li>
+<li><a href="#sec-22">22. Running Programatically</a></li>
+<li><a href="#sec-23">23. MRJob Class</a>
 <ul>
-<li><a href="#sec-25-1">25.1. More Data</a></li>
+<li><a href="#sec-23-1">23.1. Example</a></li>
 </ul>
 </li>
-<li><a href="#sec-26">26. Multi-Step</a>
+<li><a href="#sec-24">24. <b>BREAK</b></a></li>
+<li><a href="#sec-25">25. Solution</a>
 <ul>
-<li><a href="#sec-26-1">26.1. Output as Input</a></li>
-<li><a href="#sec-26-2">26.2. Examples</a></li>
-<li><a href="#sec-26-3">26.3. PageRank</a></li>
+<li><a href="#sec-25-1">25.1. Other possibilities</a></li>
 </ul>
 </li>
-<li><a href="#sec-27">27. Unique Review</a>
+<li><a href="#sec-26">26. Yelp Data</a>
 <ul>
-<li><a href="#sec-27-1">27.1. Questions</a></li>
-<li><a href="#sec-27-2">27.2. Step 2: Count Unique Words</a></li>
-<li><a href="#sec-27-3">27.3. Questions</a></li>
+<li><a href="#sec-26-1">26.1. More Data</a></li>
 </ul>
 </li>
-<li><a href="#sec-28">28. INPUT<sub>PROTOCOL</sub></a>
+<li><a href="#sec-27">27. Multi-Step</a>
 <ul>
-<li><a href="#sec-28-1">28.1. Examples</a></li>
+<li><a href="#sec-27-1">27.1. Output as Input</a></li>
+<li><a href="#sec-27-2">27.2. Examples</a></li>
+<li><a href="#sec-27-3">27.3. PageRank</a></li>
 </ul>
 </li>
-<li><a href="#sec-29">29. Protocols</a>
+<li><a href="#sec-28">28. Unique Review</a>
 <ul>
-<li><a href="#sec-29-1">29.1. Writing your own</a></li>
+<li><a href="#sec-28-1">28.1. Questions</a></li>
+<li><a href="#sec-28-2">28.2. Step 2: Count Unique Words</a></li>
+<li><a href="#sec-28-3">28.3. Questions</a></li>
 </ul>
 </li>
-<li><a href="#sec-30">30. Protcols and InputFormats</a>
+<li><a href="#sec-29">29. INPUT PROTOCOL</a>
 <ul>
-<li><a href="#sec-30-1">30.1. Limitations</a></li>
+<li><a href="#sec-29-1">29.1. Examples</a></li>
 </ul>
 </li>
-<li><a href="#sec-31">31. <b>BREAK</b></a></li>
-<li><a href="#sec-32">32. Solution</a></li>
-<li><a href="#sec-33">33. Quantifying Intuitions</a>
+<li><a href="#sec-30">30. Protocols</a>
 <ul>
-<li><a href="#sec-33-1">33.1. Skills</a></li>
+<li><a href="#sec-30-1">30.1. Writing your own</a></li>
 </ul>
 </li>
-<li><a href="#sec-34">34. Simple: Two Points</a>
+<li><a href="#sec-31">31. Protocols and InputFormats</a>
 <ul>
-<li><a href="#sec-34-1">34.1. Start</a></li>
+<li><a href="#sec-31-1">31.1. Limitations</a></li>
 </ul>
 </li>
-<li><a href="#sec-35">35. Jaccard Coefficient</a>
+<li><a href="#sec-32">32. <b>BREAK</b></a></li>
+<li><a href="#sec-33">33. Solution</a></li>
+<li><a href="#sec-34">34. Quantifying Intuitions</a>
 <ul>
-<li><a href="#sec-35-1">35.1. Jaccard</a></li>
+<li><a href="#sec-34-1">34.1. Skills</a></li>
 </ul>
 </li>
-<li><a href="#sec-36">36. Jaccard of Users</a>
+<li><a href="#sec-35">35. Simple: Two Points</a>
 <ul>
-<li><a href="#sec-36-1">36.1. Answers</a></li>
+<li><a href="#sec-35-1">35.1. Start</a></li>
 </ul>
 </li>
-<li><a href="#sec-37">37. Write user\<sub>similarity</sub>.py</a>
+<li><a href="#sec-36">36. Jaccard Coefficient</a>
 <ul>
-<li><a href="#sec-37-1">37.1. Input</a></li>
+<li><a href="#sec-36-1">36.1. Jaccard</a></li>
 </ul>
 </li>
-<li><a href="#sec-38">38. <b>BREAK</b></a></li>
-<li><a href="#sec-39">39. Solution</a>
+<li><a href="#sec-37">37. Jaccard of Users</a>
 <ul>
-<li><a href="#sec-39-1">39.1. Efficiency</a></li>
+<li><a href="#sec-37-1">37.1. Answers</a></li>
 </ul>
 </li>
-<li><a href="#sec-40">40. EMR</a></li>
-<li><a href="#sec-41">41. Elastic MapReduce</a>
+<li><a href="#sec-38">38. Write user\<sub>similarity</sub>.py</a>
 <ul>
-<li><a href="#sec-41-1">41.1. Nomenclature</a></li>
+<li><a href="#sec-38-1">38.1. Input</a></li>
 </ul>
 </li>
-<li><a href="#sec-42">42. mrjob provides</a>
+<li><a href="#sec-39">39. <b>BREAK</b></a></li>
+<li><a href="#sec-40">40. Solution</a>
 <ul>
-<li><a href="#sec-42-1">42.1. Benefits</a></li>
+<li><a href="#sec-40-1">40.1. Efficiency</a></li>
 </ul>
 </li>
-<li><a href="#sec-43">43. Settings</a>
+<li><a href="#sec-41">41. EMR</a></li>
+<li><a href="#sec-42">42. Elastic MapReduce</a>
 <ul>
-<li><a href="#sec-43-1">43.1. Info</a></li>
+<li><a href="#sec-42-1">42.1. Nomenclature</a></li>
 </ul>
 </li>
-<li><a href="#sec-44">44. Bootstrap vs Setup</a>
+<li><a href="#sec-43">43. mrjob provides</a>
 <ul>
-<li><a href="#sec-44-1">44.1. Setup vs Bootstrap</a></li>
+<li><a href="#sec-43-1">43.1. Benefits</a></li>
 </ul>
 </li>
-<li><a href="#sec-45">45. Book Keeping</a></li>
-<li><a href="#sec-46">46. Tracking</a></li>
-<li><a href="#sec-47">47. EMR Pricing</a>
+<li><a href="#sec-44">44. Settings</a>
 <ul>
-<li><a href="#sec-47-1">47.1. Typical usage</a></li>
-<li><a href="#sec-47-2">47.2. Job Flow Pooling</a>
+<li><a href="#sec-44-1">44.1. Info</a></li>
+</ul>
+</li>
+<li><a href="#sec-45">45. Bootstrap vs Setup</a>
 <ul>
-<li><a href="#sec-47-2-1">47.2.1. Pooling</a></li>
+<li><a href="#sec-45-1">45.1. Setup vs Bootstrap</a></li>
+</ul>
+</li>
+<li><a href="#sec-46">46. Book Keeping</a></li>
+<li><a href="#sec-47">47. Tracking</a></li>
+<li><a href="#sec-48">48. EMR Pricing</a>
+<ul>
+<li><a href="#sec-48-1">48.1. Typical usage</a></li>
+<li><a href="#sec-48-2">48.2. Job Flow Pooling</a>
+<ul>
+<li><a href="#sec-48-2-1">48.2.1. Pooling</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-48">48. How To</a></li>
-<li><a href="#sec-49">49. mrjob Workflow</a></li>
-<li><a href="#sec-50">50. Thank You!</a></li>
+<li><a href="#sec-49">49. How To</a></li>
+<li><a href="#sec-50">50. mrjob Workflow</a></li>
+<li><a href="#sec-51">51. Thank You!</a></li>
 </ul>
 </div>
 </div>
@@ -394,6 +405,7 @@ for the JavaScript code in this tag.
 <div class="org-src-container">
 
 <pre class="src src-shell">git clone https://github.com/jblomo/pycon-mrjob.git
+cd pycon-mrjob
 virtualenv venv
 . venv/bin/activate
 pip install -r requirements.txt
@@ -488,7 +500,9 @@ compatible.
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 
-<pre class="src src-html">python venv/lib/python2.7/site-packages/mrjob/examples/mr_word_freq_count.py requirements.txt
+<pre class="src src-html">echo hello | \
+python \
+venv/lib/python2.7/site-packages/mrjob/examples/mr_word_freq_count.py
 </pre>
 </div>
 </div>
@@ -573,6 +587,7 @@ compatible.
 </li>
 </ul>
 
+
 <div class="figure">
 <p><img src="img/mapreduce-paper.png"  alt="mapreduce-paper.png"/></p>
 </div>
@@ -629,7 +644,7 @@ compatible.
 <dl class="org-dl">
 <dt> Map </dt><dd>Extract a property to summarize over
 </dd>
-<dt> Reduce </dt><dd>Summarize all items with a particular propery
+<dt> Reduce </dt><dd>Summarize all items with a particular property
 </dd>
 </dl>
 
@@ -911,6 +926,9 @@ save            1
 <ul class="org-ul">
 <li>Now it is easy to distribute, and can handle all the <code>load</code> at once
 </li>
+<li>When mrjob is running, you'll notice debugging output, including a "sort"
+step. This is why.
+</li>
 </ul>
 </div>
 </div>
@@ -1010,20 +1028,33 @@ app.logger.info(json.dumps(log_data))
 </div>
 </div>
 </div>
+
 <div id="outline-container-sec-12" class="outline-2">
-<h2 id="sec-12"><span class="section-number-2">12</span> Data&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<h2 id="sec-12"><span class="section-number-2">12</span> Word Count&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
-<li><a href="http://archive.ics.uci.edu/ml/machine-learning-databases/anonymous/">Anonymous web data from www.microsoft.com</a>
+<li>Example: frequency of every word used in a text
 </li>
-<li>Contains information in CSV format
+<li>Map: Extract the words from a line, yield the number of times we've seen it
 </li>
-<li>use mrjob MapReduce Framework to find answers
+<li>Reduce: For each word, summarize those counts
 </li>
 </ul>
 </div>
 <div id="outline-container-sec-12-1" class="outline-3">
-<h3 id="sec-12-1"><span class="section-number-3">12.1</span> Format&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<h3 id="sec-12-1"><span class="section-number-3">12.1</span> Another example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-12-1">
+<ul class="org-ul">
+<li>Let's take a look at another example
+</li>
+<li>instead of counting actions, 1 per line, now we want to count words
+</li>
+<li>potentially many per line
+</li>
+<li>Same general idea though. Tunnel vision on one line (even one word!)
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div id="outline-container-sec-13" class="outline-2">
@@ -1031,17 +1062,17 @@ app.logger.info(json.dumps(log_data))
 <div class="outline-text-2" id="text-13">
 <div class="org-src-container">
 
-<pre class="src src-html">from mrjob.job import MRJob
+<pre class="src src-python"><span style="color: #a020f0;">from</span> mrjob.job <span style="color: #a020f0;">import</span> MRJob
 
-class MRWordCounter(MRJob):
-    def mapper(self, key, line):
-        for word in line.split():
-            yield word, 1
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">MRWordCounter</span>(MRJob):
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">mapper</span>(<span style="color: #a020f0;">self</span>, key, line):
+        <span style="color: #a020f0;">for</span> word <span style="color: #a020f0;">in</span> line.split():
+            <span style="color: #a020f0;">yield</span> word, 1
 
-    def reducer(self, word, occurrences):
-        yield word, sum(occurrences)
+    <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">reducer</span>(<span style="color: #a020f0;">self</span>, word, occurrences):
+        <span style="color: #a020f0;">yield</span> word, <span style="color: #7a378b;">sum</span>(occurrences)
 
-if __name__ == '__main__':
+<span style="color: #a020f0;">if</span> <span style="color: #7a378b;">__name__</span> == <span style="color: #8b2252;">'__main__'</span>:
     MRWordCounter.run()
 </pre>
 </div>
@@ -1050,7 +1081,7 @@ More documentation: <a href="http://pythonhosted.org/mrjob/">http://pythonhosted
 </p>
 </div>
 <div id="outline-container-sec-13-1" class="outline-3">
-<h3 id="sec-13-1"><span class="section-number-3">13.1</span> Relation to HW&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<h3 id="sec-13-1"><span class="section-number-3">13.1</span> Relation to example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
 <div class="outline-text-3" id="text-13-1">
 <ul class="org-ul">
 <li><code>mapper</code> takes keys and values
@@ -1065,9 +1096,70 @@ once
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-13-2" class="outline-3">
-<h3 id="sec-13-2"><span class="section-number-3">13.2</span> Output&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
-<div class="outline-text-3" id="text-13-2">
+</div>
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14"><span class="section-number-2">14</span> Data&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li><a href="http://archive.ics.uci.edu/ml/machine-learning-databases/anonymous/">Anonymous web data from www.microsoft.com</a>
+</li>
+<li>Contains information in CSV format
+</li>
+<li>use mrjob MapReduce Framework to find answers
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-14-1" class="outline-3">
+<h3 id="sec-14-1"><span class="section-number-3">14.1</span> Format&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-14-1">
+<ul class="org-ul">
+<li>Open up file
+</li>
+<li>File tells us information about a "Vroot"
+</li>
+<li>Vroot is just a fancy name for a page with a numeric ID
+</li>
+<li>each line is different information about the vroot:
+</li>
+<li>A: attributes of a vroot (id, title, url)
+</li>
+<li>C: customer information, following which are the Visits that customer made
+to the vroot
+</li>
+<li>V: a visit to a vroot (id)
+</li>
+<li>Before we talked about actions of redirecting, saving, etc. Now we have a
+lot more different actions: each vroot with an ID
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-14-2" class="outline-3">
+<h3 id="sec-14-2"><span class="section-number-3">14.2</span> Output&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-14-2">
+<ul class="org-ul">
+<li>vroot ID =&gt; number of visits
+</li>
+<li>Group by the vroot ID
+</li>
+<li>Summarize all of the visits
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-14-3" class="outline-3">
+<h3 id="sec-14-3"><span class="section-number-3">14.3</span> Summary&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-14-3">
+<ul class="org-ul">
+<li>and what does it look to actually run this?
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-14-4" class="outline-3">
+<h3 id="sec-14-4"><span class="section-number-3">14.4</span> Output&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-14-4">
 <div class="org-src-container">
 
 <pre class="src src-bash">python code/top_pages.py msanon/anonymous-msweb.data.gz
@@ -1096,9 +1188,9 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 </div>
 </div>
 
-<div id="outline-container-sec-13-3" class="outline-3">
-<h3 id="sec-13-3"><span class="section-number-3">13.3</span> Running&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-13-3">
+<div id="outline-container-sec-14-5" class="outline-3">
+<h3 id="sec-14-5"><span class="section-number-3">14.5</span> Running&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-14-5">
 <ul class="org-ul">
 <li>Run with python
 </li>
@@ -1110,9 +1202,9 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 </div>
 </div>
 </div>
-<div id="outline-container-sec-14" class="outline-2">
-<h2 id="sec-14"><span class="section-number-2">14</span> Pages with &gt; 400 visits&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15"><span class="section-number-2">15</span> Pages with &gt; 400 visits&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-15">
 <ul class="org-ul">
 <li>Find pages (aka Vroots) with more than 400 visits
 </li>
@@ -1120,9 +1212,9 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-14-1" class="outline-3">
-<h3 id="sec-14-1"><span class="section-number-3">14.1</span> Demo&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-14-1">
+<div id="outline-container-sec-15-1" class="outline-3">
+<h3 id="sec-15-1"><span class="section-number-3">15.1</span> Demo&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-15-1">
 <ul class="org-ul">
 <li><code>csv_readline</code> takes in a CSV line, return a list of values
 </li>
@@ -1130,21 +1222,25 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 </div>
 </div>
 </div>
-<div id="outline-container-sec-15" class="outline-2">
-<h2 id="sec-15"><span class="section-number-2">15</span> <b>BREAK</b>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-15">
+<div id="outline-container-sec-16" class="outline-2">
+<h2 id="sec-16"><span class="section-number-2">16</span> <b>BREAK</b>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-16">
 <ul class="org-ul">
 <li>Please complete exercise 1
 </li>
-<li>Fill in <code>code/top\_pages.py</code>
+<li>Fill in <code>code/top_pages.py</code>
+</li>
+<li>Take in web browsing data, output vroot to number of visits
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-16" class="outline-2">
-<h2 id="sec-16"><span class="section-number-2">16</span> Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-16">
+<div id="outline-container-sec-17" class="outline-2">
+<h2 id="sec-17"><span class="section-number-2">17</span> Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-17">
 <ul class="org-ul">
+<li><code>git commit -m "my solution" -a</code>
+</li>
 <li><code>git checkout ex1</code>
 </li>
 <li>yield the vroot ID and the number of times seen in that line (1)
@@ -1154,9 +1250,9 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-17" class="outline-2">
-<h2 id="sec-17"><span class="section-number-2">17</span> Discussion: User Visits&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="animate">animate</span></span></h2>
-<div class="outline-text-2" id="text-17">
+<div id="outline-container-sec-18" class="outline-2">
+<h2 id="sec-18"><span class="section-number-2">18</span> Discussion: User Visits&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="animate">animate</span></span></h2>
+<div class="outline-text-2" id="text-18">
 <ul class="org-ul">
 <li>Can we calculate the number of visits per user?
 </li>
@@ -1167,9 +1263,9 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-18" class="outline-2">
-<h2 id="sec-18"><span class="section-number-2">18</span> Transform Data&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-18">
+<div id="outline-container-sec-19" class="outline-2">
+<h2 id="sec-19"><span class="section-number-2">19</span> Transform Data&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-19">
 <ul class="org-ul">
 <li>MapReduce needs all information on one line
 </li>
@@ -1179,9 +1275,9 @@ Streaming final output from /tmp/top_pages.jim.20121116.052647.278066/output
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-18-1" class="outline-3">
-<h3 id="sec-18-1"><span class="section-number-3">18.1</span> Not covered&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-18-1">
+<div id="outline-container-sec-19-1" class="outline-3">
+<h3 id="sec-19-1"><span class="section-number-3">19.1</span> Not covered&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-19-1">
 <ul class="org-ul">
 <li>This is a little out of the scope of this tutorial
 </li>
@@ -1194,9 +1290,9 @@ Hadoop/mrjob specifically
 </div>
 </div>
 </div>
-<div id="outline-container-sec-19" class="outline-2">
-<h2 id="sec-19"><span class="section-number-2">19</span> Most Common Title Words&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-19">
+<div id="outline-container-sec-20" class="outline-2">
+<h2 id="sec-20"><span class="section-number-2">20</span> Most Common Title Words&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-20">
 <ul class="org-ul">
 <li>Vroots (pages) have titles
 </li>
@@ -1205,15 +1301,17 @@ Hadoop/mrjob specifically
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-20" class="outline-2">
-<h2 id="sec-20"><span class="section-number-2">20</span> Joins&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="two_col">two_col</span></span></h2>
-<div class="outline-text-2" id="text-20">
+<div id="outline-container-sec-21" class="outline-2">
+<h2 id="sec-21"><span class="section-number-2">21</span> Joins&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-21">
 <ul class="org-ul">
 <li>Sometimes need to join against two data sets
 </li>
 <li>In our case, it is the same file, different record types
 </li>
 <li>mrjob can pass serializable objects between Map and Reduce steps
+</li>
+<li>You can "tag" values with identifiers, eg. title or visit
 </li>
 </ul>
 
@@ -1226,25 +1324,23 @@ V<span style="color: #ff0000;">,</span>1012<span style="color: #ff0000;">,</span
 </div>
 </div>
 </div>
-<div id="outline-container-sec-21" class="outline-2">
-<h2 id="sec-21"><span class="section-number-2">21</span> Running Programatically&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-21">
+<div id="outline-container-sec-22" class="outline-2">
+<h2 id="sec-22"><span class="section-number-2">22</span> Running Programatically&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-22">
 <ul class="org-ul">
 <li>We've been running in the command line
 </li>
 <li>How to process the output of an MRJob inline
 </li>
 <li>Testing, insert results into a database, do further processing on all of
+result
 </li>
 </ul>
-<p>
-result
-</p>
 </div>
 </div>
-<div id="outline-container-sec-22" class="outline-2">
-<h2 id="sec-22"><span class="section-number-2">22</span> MRJob Class&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-22">
+<div id="outline-container-sec-23" class="outline-2">
+<h2 id="sec-23"><span class="section-number-2">23</span> MRJob Class&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-23">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #a0522d;">mr_job</span> = MRJobSubclass(args=[...])
@@ -1254,9 +1350,9 @@ result
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-22-1" class="outline-3">
-<h3 id="sec-22-1"><span class="section-number-3">22.1</span> Example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-22-1">
+<div id="outline-container-sec-23-1" class="outline-3">
+<h3 id="sec-23-1"><span class="section-number-3">23.1</span> Example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-23-1">
 <ul class="org-ul">
 <li><code>code/top\_titles.py</code>
 </li>
@@ -1264,22 +1360,24 @@ result
 </div>
 </div>
 </div>
-<div id="outline-container-sec-23" class="outline-2">
-<h2 id="sec-23"><span class="section-number-2">23</span> <b>BREAK</b>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-23">
+<div id="outline-container-sec-24" class="outline-2">
+<h2 id="sec-24"><span class="section-number-2">24</span> <b>BREAK</b>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-24">
 <ul class="org-ul">
 <li>Please complete exercise 2
 </li>
-<li>Fill in <code>code/count\_titles.py</code>
+<li>What are the titles of the 10 most browsed nodes?
 </li>
-<li>Examine and run with <code>code/top\_titles.py</code>
+<li>Fill in <code>code/count_titles.py</code>
+</li>
+<li>Examine and run with <code>code/top_titles.py</code>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-24" class="outline-2">
-<h2 id="sec-24"><span class="section-number-2">24</span> Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-24">
+<div id="outline-container-sec-25" class="outline-2">
+<h2 id="sec-25"><span class="section-number-2">25</span> Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-25">
 <ul class="org-ul">
 <li><code>git checkout ex2</code>
 </li>
@@ -1289,12 +1387,21 @@ result
 </li>
 </ul>
 </div>
-</div>
-<div id="outline-container-sec-25" class="outline-2">
-<h2 id="sec-25"><span class="section-number-2">25</span> Yelp Data&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-25">
+<div id="outline-container-sec-25-1" class="outline-3">
+<h3 id="sec-25-1"><span class="section-number-3">25.1</span> Other possibilities&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-25-1">
 <ul class="org-ul">
-<li>Subset of data available in  <code>yelp/selected_reviews.json=</code>
+<li>Can tag with a dictionary instead
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-26" class="outline-2">
+<h2 id="sec-26"><span class="section-number-2">26</span> Yelp Data&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-26">
+<ul class="org-ul">
+<li>Subset of data available in  <code>yelp/selected_reviews.json.gz</code>
 </li>
 </ul>
 <div class="org-src-container">
@@ -1310,9 +1417,9 @@ result
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-25-1" class="outline-3">
-<h3 id="sec-25-1"><span class="section-number-3">25.1</span> More Data&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-25-1">
+<div id="outline-container-sec-26-1" class="outline-3">
+<h3 id="sec-26-1"><span class="section-number-3">26.1</span> More Data&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-26-1">
 <ul class="org-ul">
 <li>You may run with more data by downloading and extracting from
      <a href="http://www.yelp.com/dataset_challenge">http://www.yelp.com/dataset_challenge</a>
@@ -1321,9 +1428,9 @@ result
 </div>
 </div>
 </div>
-<div id="outline-container-sec-26" class="outline-2">
-<h2 id="sec-26"><span class="section-number-2">26</span> Multi-Step&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-26">
+<div id="outline-container-sec-27" class="outline-2">
+<h2 id="sec-27"><span class="section-number-2">27</span> Multi-Step&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-27">
 <ul class="org-ul">
 <li>Not all computations can be done in a single MapReduce step
 </li>
@@ -1335,18 +1442,18 @@ result
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-26-1" class="outline-3">
-<h3 id="sec-26-1"><span class="section-number-3">26.1</span> Output as Input&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-26-1">
+<div id="outline-container-sec-27-1" class="outline-3">
+<h3 id="sec-27-1"><span class="section-number-3">27.1</span> Output as Input&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-27-1">
 <ul class="org-ul">
 <li>The output of one MapReduce job can be used as the input to another
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-26-2" class="outline-3">
-<h3 id="sec-26-2"><span class="section-number-3">26.2</span> Examples&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
-<div class="outline-text-3" id="text-26-2">
+<div id="outline-container-sec-27-2" class="outline-3">
+<h3 id="sec-27-2"><span class="section-number-3">27.2</span> Examples&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-27-2">
 <ul class="org-ul">
 <li>PageRank: Multiple steps till solution converges
 </li>
@@ -1356,9 +1463,9 @@ result
 </div>
 </div>
 
-<div id="outline-container-sec-26-3" class="outline-3">
-<h3 id="sec-26-3"><span class="section-number-3">26.3</span> PageRank&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-26-3">
+<div id="outline-container-sec-27-3" class="outline-3">
+<h3 id="sec-27-3"><span class="section-number-3">27.3</span> PageRank&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-27-3">
 <ul class="org-ul">
 <li>PageRank is an algorithm for calculating the important of a page
 </li>
@@ -1372,25 +1479,25 @@ result
 </div>
 </div>
 </div>
-<div id="outline-container-sec-27" class="outline-2">
-<h2 id="sec-27"><span class="section-number-2">27</span> Unique Review&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="animate">animate</span></span></h2>
-<div class="outline-text-2" id="text-27">
+<div id="outline-container-sec-28" class="outline-2">
+<h2 id="sec-28"><span class="section-number-2">28</span> Unique Review&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="animate">animate</span></span></h2>
+<div class="outline-text-2" id="text-28">
 <ul class="org-ul">
 <li>Count unique words per review
 </li>
-<li>Map Input: &lt;line number, text&gt;
+<li>Map Input: &lt;line number, review dictionary&gt;
 </li>
-<li>Map Output: &lt;word, review\<sub>id</sub>&gt;
+<li>Map Output: &lt;word, review-id&gt;
 </li>
-<li>Reducer Input: &lt;word, [review\<sub>ids]</sub>&gt;
+<li>Reducer Input: &lt;word, [review-ids]&gt;
 </li>
-<li>Reducer Output: &lt;review\<sub>id</sub>, 1&gt; if the word is unique
+<li>Reducer Output: &lt;review-id, 1&gt; if the word is unique
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-27-1" class="outline-3">
-<h3 id="sec-27-1"><span class="section-number-3">27.1</span> Questions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-27-1">
+<div id="outline-container-sec-28-1" class="outline-3">
+<h3 id="sec-28-1"><span class="section-number-3">28.1</span> Questions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-28-1">
 <ul class="org-ul">
 <li>For our purposes, what is always the mapper input?
 </li>
@@ -1403,25 +1510,25 @@ result
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-27-2" class="outline-3">
-<h3 id="sec-27-2"><span class="section-number-3">27.2</span> Step 2: Count Unique Words&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="animate">animate</span></span></h3>
-<div class="outline-text-3" id="text-27-2">
+<div id="outline-container-sec-28-2" class="outline-3">
+<h3 id="sec-28-2"><span class="section-number-3">28.2</span> Step 2: Count Unique Words&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="animate">animate</span></span></h3>
+<div class="outline-text-3" id="text-28-2">
 <ul class="org-ul">
-<li>Map Input: &lt;review\<sub>id</sub>, 1&gt;
+<li>Map Input: &lt;review-id, 1&gt;
 </li>
-<li>Map Output: &lt;review\<sub>id</sub>, 1&gt;
+<li>Map Output: &lt;review-id, 1&gt;
 </li>
-<li>Reducer Input: &lt;review\<sub>id</sub>, [1,1,&#x2026;]&gt;
+<li>Reducer Input: &lt;review-id, [1,1,&#x2026;]&gt;
 </li>
-<li>Reducer Output: &lt;review\<sub>id</sub>, sum&gt;
+<li>Reducer Output: &lt;review-id, sum&gt;
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-27-3" class="outline-3">
-<h3 id="sec-27-3"><span class="section-number-3">27.3</span> Questions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-27-3">
+<div id="outline-container-sec-28-3" class="outline-3">
+<h3 id="sec-28-3"><span class="section-number-3">28.3</span> Questions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-28-3">
 <ul class="org-ul">
 <li>Given the reducer output, what <b>must</b> the mapper input be (for chained
 MapReduce steps)
@@ -1436,9 +1543,9 @@ MapReduce steps)
 </div>
 </div>
 </div>
-<div id="outline-container-sec-28" class="outline-2">
-<h2 id="sec-28"><span class="section-number-2">28</span> INPUT<sub>PROTOCOL</sub>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-28">
+<div id="outline-container-sec-29" class="outline-2">
+<h2 id="sec-29"><span class="section-number-2">29</span> INPUT PROTOCOL&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-29">
 <ul class="org-ul">
 <li>Previous examples manually parsed line
 </li>
@@ -1448,10 +1555,12 @@ MapReduce steps)
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-28-1" class="outline-3">
-<h3 id="sec-28-1"><span class="section-number-3">28.1</span> Examples&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-28-1">
+<div id="outline-container-sec-29-1" class="outline-3">
+<h3 id="sec-29-1"><span class="section-number-3">29.1</span> Examples&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-29-1">
 <ul class="org-ul">
+<li>Open up code/unique<sub>review</sub>.py
+</li>
 <li>We're using a JSON object per line. Other options include JSON key-values,
 </li>
 </ul>
@@ -1465,9 +1574,9 @@ or writing your own
 </div>
 </div>
 </div>
-<div id="outline-container-sec-29" class="outline-2">
-<h2 id="sec-29"><span class="section-number-2">29</span> Protocols&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-29">
+<div id="outline-container-sec-30" class="outline-2">
+<h2 id="sec-30"><span class="section-number-2">30</span> Protocols&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-30">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #a020f0;">class</span> <span style="color: #228b22;">JSONValueProtocol</span>(<span style="color: #7a378b;">object</span>):
@@ -1482,9 +1591,9 @@ or writing your own
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-29-1" class="outline-3">
-<h3 id="sec-29-1"><span class="section-number-3">29.1</span> Writing your own&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-29-1">
+<div id="outline-container-sec-30-1" class="outline-3">
+<h3 id="sec-30-1"><span class="section-number-3">30.1</span> Writing your own&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-30-1">
 <ul class="org-ul">
 <li>Protocols are straightforward to write
 </li>
@@ -1499,9 +1608,9 @@ can easily process data created by mysqldump
 </div>
 </div>
 </div>
-<div id="outline-container-sec-30" class="outline-2">
-<h2 id="sec-30"><span class="section-number-2">30</span> Protcols and InputFormats&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-30">
+<div id="outline-container-sec-31" class="outline-2">
+<h2 id="sec-31"><span class="section-number-2">31</span> Protocols and InputFormats&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-31">
 <ul class="org-ul">
 <li>mrjob operates on lines of tab delimited text
 </li>
@@ -1511,9 +1620,9 @@ can easily process data created by mysqldump
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-30-1" class="outline-3">
-<h3 id="sec-30-1"><span class="section-number-3">30.1</span> Limitations&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-30-1">
+<div id="outline-container-sec-31-1" class="outline-3">
+<h3 id="sec-31-1"><span class="section-number-3">31.1</span> Limitations&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-31-1">
 <ul class="org-ul">
 <li>line oriented is limitation of Hadoop Streaming
 </li>
@@ -1544,22 +1653,24 @@ directory, like providing a Manifest file.
 </div>
 </div>
 </div>
-<div id="outline-container-sec-31" class="outline-2">
-<h2 id="sec-31"><span class="section-number-2">31</span> <b>BREAK</b>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-31">
+<div id="outline-container-sec-32" class="outline-2">
+<h2 id="sec-32"><span class="section-number-2">32</span> <b>BREAK</b>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-32">
 <ul class="org-ul">
 <li>Please complete exercise 3
 </li>
-<li>Fill in <code>code/unique\_review.py</code>
+<li>Fill in <code>code/unique_review.py</code>
+</li>
+<li>Output a review ID with how many unique words it used
 </li>
 <li>Run with data in <code>yelp/selected_reviews.json</code>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-32" class="outline-2">
-<h2 id="sec-32"><span class="section-number-2">32</span> Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-32">
+<div id="outline-container-sec-33" class="outline-2">
+<h2 id="sec-33"><span class="section-number-2">33</span> Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-33">
 <ul class="org-ul">
 <li>Extract words from the review comment field
 </li>
@@ -1570,9 +1681,9 @@ directory, like providing a Manifest file.
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-33" class="outline-2">
-<h2 id="sec-33"><span class="section-number-2">33</span> Quantifying Intuitions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-33">
+<div id="outline-container-sec-34" class="outline-2">
+<h2 id="sec-34"><span class="section-number-2">34</span> Quantifying Intuitions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-34">
 <ul class="org-ul">
 <li>Data Scientists translate ideas into math
 </li>
@@ -1582,9 +1693,9 @@ directory, like providing a Manifest file.
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-33-1" class="outline-3">
-<h3 id="sec-33-1"><span class="section-number-3">33.1</span> Skills&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-33-1">
+<div id="outline-container-sec-34-1" class="outline-3">
+<h3 id="sec-34-1"><span class="section-number-3">34.1</span> Skills&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-34-1">
 <ul class="org-ul">
 <li>One of the core skill of a DS is translating an intuition into a
 </li>
@@ -1612,9 +1723,9 @@ you need to associate a number with that similarity
 </div>
 </div>
 </div>
-<div id="outline-container-sec-34" class="outline-2">
-<h2 id="sec-34"><span class="section-number-2">34</span> Simple: Two Points&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="animate">animate</span></span></h2>
-<div class="outline-text-2" id="text-34">
+<div id="outline-container-sec-35" class="outline-2">
+<h2 id="sec-35"><span class="section-number-2">35</span> Simple: Two Points&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="animate">animate</span></span></h2>
+<div class="outline-text-2" id="text-35">
 <ul class="org-ul">
 <li>Sometimes can translate entities to points
 </li>
@@ -1626,9 +1737,9 @@ you need to associate a number with that similarity
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-34-1" class="outline-3">
-<h3 id="sec-34-1"><span class="section-number-3">34.1</span> Start&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-34-1">
+<div id="outline-container-sec-35-1" class="outline-3">
+<h3 id="sec-35-1"><span class="section-number-3">35.1</span> Start&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-35-1">
 <ul class="org-ul">
 <li>For example intracity geographic distance
 </li>
@@ -1670,9 +1781,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </div>
 </div>
 </div>
-<div id="outline-container-sec-35" class="outline-2">
-<h2 id="sec-35"><span class="section-number-2">35</span> Jaccard Coefficient&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-35">
+<div id="outline-container-sec-36" class="outline-2">
+<h2 id="sec-36"><span class="section-number-2">36</span> Jaccard Coefficient&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-36">
 <ul class="org-ul">
 <li>Commonly used for calculating set similarity
 </li>
@@ -1682,9 +1793,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-35-1" class="outline-3">
-<h3 id="sec-35-1"><span class="section-number-3">35.1</span> Jaccard&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-35-1">
+<div id="outline-container-sec-36-1" class="outline-3">
+<h3 id="sec-36-1"><span class="section-number-3">36.1</span> Jaccard&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-36-1">
 <ol class="org-ol">
 <li>Break up into a set
 </li>
@@ -1698,9 +1809,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </div>
 </div>
 </div>
-<div id="outline-container-sec-36" class="outline-2">
-<h2 id="sec-36"><span class="section-number-2">36</span> Jaccard of Users&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-36">
+<div id="outline-container-sec-37" class="outline-2">
+<h2 id="sec-37"><span class="section-number-2">37</span> Jaccard of Users&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-37">
 <ul class="org-ul">
 <li>We take the set of businesses reviewed by two users
 </li>
@@ -1710,9 +1821,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-36-1" class="outline-3">
-<h3 id="sec-36-1"><span class="section-number-3">36.1</span> Answers&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-36-1">
+<div id="outline-container-sec-37-1" class="outline-3">
+<h3 id="sec-37-1"><span class="section-number-3">37.1</span> Answers&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-37-1">
 <ul class="org-ul">
 <li>None = 0
 </li>
@@ -1722,9 +1833,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </div>
 </div>
 </div>
-<div id="outline-container-sec-37" class="outline-2">
-<h2 id="sec-37"><span class="section-number-2">37</span> Write user\<sub>similarity</sub>.py&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-37">
+<div id="outline-container-sec-38" class="outline-2">
+<h2 id="sec-38"><span class="section-number-2">38</span> Write user\<sub>similarity</sub>.py&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-38">
 <ul class="org-ul">
 <li>Find users &gt;= 0.5 similarity
 </li>
@@ -1734,9 +1845,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-37-1" class="outline-3">
-<h3 id="sec-37-1"><span class="section-number-3">37.1</span> Input&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-37-1">
+<div id="outline-container-sec-38-1" class="outline-3">
+<h3 id="sec-38-1"><span class="section-number-3">38.1</span> Input&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-38-1">
 <ul class="org-ul">
 <li>Takes as input the list of reviews that we have
 </li>
@@ -1746,9 +1857,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </div>
 </div>
 </div>
-<div id="outline-container-sec-38" class="outline-2">
-<h2 id="sec-38"><span class="section-number-2">38</span> <b>BREAK</b>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-38">
+<div id="outline-container-sec-39" class="outline-2">
+<h2 id="sec-39"><span class="section-number-2">39</span> <b>BREAK</b>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-39">
 <ul class="org-ul">
 <li>Please complete exercise 4
 </li>
@@ -1761,9 +1872,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-39" class="outline-2">
-<h2 id="sec-39"><span class="section-number-2">39</span> Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-39">
+<div id="outline-container-sec-40" class="outline-2">
+<h2 id="sec-40"><span class="section-number-2">40</span> Solution&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-40">
 <ul class="org-ul">
 <li>Map user to list of businesses reviewed
 </li>
@@ -1775,9 +1886,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-39-1" class="outline-3">
-<h3 id="sec-39-1"><span class="section-number-3">39.1</span> Efficiency&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-39-1">
+<div id="outline-container-sec-40-1" class="outline-3">
+<h3 id="sec-40-1"><span class="section-number-3">40.1</span> Efficiency&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-40-1">
 <ul class="org-ul">
 <li>We do duplicate work, but the trade-off is parallelism in the best case
 </li>
@@ -1788,9 +1899,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </div>
 </div>
 </div>
-<div id="outline-container-sec-40" class="outline-2">
-<h2 id="sec-40"><span class="section-number-2">40</span> EMR&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-40">
+<div id="outline-container-sec-41" class="outline-2">
+<h2 id="sec-41"><span class="section-number-2">41</span> EMR&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-41">
 <ul class="org-ul">
 <li>We've been using local mode
 </li>
@@ -1801,9 +1912,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-41" class="outline-2">
-<h2 id="sec-41"><span class="section-number-2">41</span> Elastic MapReduce&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-41">
+<div id="outline-container-sec-42" class="outline-2">
+<h2 id="sec-42"><span class="section-number-2">42</span> Elastic MapReduce&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-42">
 <ul class="org-ul">
 <li>Hadoop as a service by Amazon
 </li>
@@ -1815,9 +1926,9 @@ cube and take the cube root&#x2026; leads to different semantics
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-41-1" class="outline-3">
-<h3 id="sec-41-1"><span class="section-number-3">41.1</span> Nomenclature&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-41-1">
+<div id="outline-container-sec-42-1" class="outline-3">
+<h3 id="sec-42-1"><span class="section-number-3">42.1</span> Nomenclature&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-42-1">
 <ul class="org-ul">
 <li>API to bring up a cluster of N machines
 </li>
@@ -1836,9 +1947,9 @@ commands, terminating them, etc
 </div>
 </div>
 </div>
-<div id="outline-container-sec-42" class="outline-2">
-<h2 id="sec-42"><span class="section-number-2">42</span> mrjob provides&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-42">
+<div id="outline-container-sec-43" class="outline-2">
+<h2 id="sec-43"><span class="section-number-2">43</span> mrjob provides&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-43">
 <ul class="org-ul">
 <li>Encode standard settings as config file or arguments
 </li>
@@ -1850,9 +1961,9 @@ commands, terminating them, etc
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-42-1" class="outline-3">
-<h3 id="sec-42-1"><span class="section-number-3">42.1</span> Benefits&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-42-1">
+<div id="outline-container-sec-43-1" class="outline-3">
+<h3 id="sec-43-1"><span class="section-number-3">43.1</span> Benefits&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-43-1">
 <ul class="org-ul">
 <li>A config file is easy to install across developers. Yelp has 3 main ones:
 </li>
@@ -1892,9 +2003,9 @@ share an existing one.
 </div>
 </div>
 </div>
-<div id="outline-container-sec-43" class="outline-2">
-<h2 id="sec-43"><span class="section-number-2">43</span> Settings&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-43">
+<div id="outline-container-sec-44" class="outline-2">
+<h2 id="sec-44"><span class="section-number-2">44</span> Settings&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-44">
 <ul class="org-ul">
 <li>Instance types
 </li>
@@ -1910,9 +2021,9 @@ share an existing one.
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-43-1" class="outline-3">
-<h3 id="sec-43-1"><span class="section-number-3">43.1</span> Info&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-43-1">
+<div id="outline-container-sec-44-1" class="outline-3">
+<h3 id="sec-44-1"><span class="section-number-3">44.1</span> Info&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-44-1">
 <dl class="org-dl">
 <dt> Instance types </dt><dd>how beefy a machine do you want to run? Is your load
 </dd>
@@ -1947,9 +2058,9 @@ this install needs to happen on all machines
 </div>
 </div>
 </div>
-<div id="outline-container-sec-44" class="outline-2">
-<h2 id="sec-44"><span class="section-number-2">44</span> Bootstrap vs Setup&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-44">
+<div id="outline-container-sec-45" class="outline-2">
+<h2 id="sec-45"><span class="section-number-2">45</span> Bootstrap vs Setup&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-45">
 <ul class="org-ul">
 <li>Bootstrap runs at VM creation
 </li>
@@ -1959,9 +2070,9 @@ this install needs to happen on all machines
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-44-1" class="outline-3">
-<h3 id="sec-44-1"><span class="section-number-3">44.1</span> Setup vs Bootstrap&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-44-1">
+<div id="outline-container-sec-45-1" class="outline-3">
+<h3 id="sec-45-1"><span class="section-number-3">45.1</span> Setup vs Bootstrap&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-45-1">
 <ul class="org-ul">
 <li>When repeatedly changing and testing your code, you'll want a new version
 </li>
@@ -1973,9 +2084,9 @@ of your application that change
 </div>
 </div>
 </div>
-<div id="outline-container-sec-45" class="outline-2">
-<h2 id="sec-45"><span class="section-number-2">45</span> Book Keeping&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-45">
+<div id="outline-container-sec-46" class="outline-2">
+<h2 id="sec-46"><span class="section-number-2">46</span> Book Keeping&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-46">
 <ul class="org-ul">
 <li>&#x2013;output-dir s3://output-bucket/path/
 </li>
@@ -1986,9 +2097,9 @@ of your application that change
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-46" class="outline-2">
-<h2 id="sec-46"><span class="section-number-2">46</span> Tracking&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="two_col">two_col</span></span></h2>
-<div class="outline-text-2" id="text-46">
+<div id="outline-container-sec-47" class="outline-2">
+<h2 id="sec-47"><span class="section-number-2">47</span> Tracking&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span>&#xa0;<span class="two_col">two_col</span></span></h2>
+<div class="outline-text-2" id="text-47">
 <ul class="org-ul">
 <li>mrjob opens an SSH tunnel to the master node for Hadoop stats
 </li>
@@ -2001,9 +2112,9 @@ of your application that change
 </div>
 </div>
 </div>
-<div id="outline-container-sec-47" class="outline-2">
-<h2 id="sec-47"><span class="section-number-2">47</span> EMR Pricing&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-47">
+<div id="outline-container-sec-48" class="outline-2">
+<h2 id="sec-48"><span class="section-number-2">48</span> EMR Pricing&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-48">
 <ul class="org-ul">
 <li>Job flows are billed hourly, rounding <b>up</b>
 </li>
@@ -2013,9 +2124,9 @@ of your application that change
 <p><img src="img/jobflow-no-pooling.png"  alt="jobflow-no-pooling.png"/></p>
 </div>
 </div>
-<div id="outline-container-sec-47-1" class="outline-3">
-<h3 id="sec-47-1"><span class="section-number-3">47.1</span> Typical usage&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
-<div class="outline-text-3" id="text-47-1">
+<div id="outline-container-sec-48-1" class="outline-3">
+<h3 id="sec-48-1"><span class="section-number-3">48.1</span> Typical usage&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h3>
+<div class="outline-text-3" id="text-48-1">
 <ul class="org-ul">
 <li>Spin up a job flow, when finished, kill it
 </li>
@@ -2026,9 +2137,9 @@ of your application that change
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-47-2" class="outline-3">
-<h3 id="sec-47-2"><span class="section-number-3">47.2</span> Job Flow Pooling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
-<div class="outline-text-3" id="text-47-2">
+<div id="outline-container-sec-48-2" class="outline-3">
+<h3 id="sec-48-2"><span class="section-number-3">48.2</span> Job Flow Pooling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-48-2">
 <ul class="org-ul">
 <li>Don't end job flow after job, share remaining time
 </li>
@@ -2042,9 +2153,9 @@ of your application that change
 </li>
 </ul>
 </div>
-<div id="outline-container-sec-47-2-1" class="outline-4">
-<h4 id="sec-47-2-1"><span class="section-number-4">47.2.1</span> Pooling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h4>
-<div class="outline-text-4" id="text-47-2-1">
+<div id="outline-container-sec-48-2-1" class="outline-4">
+<h4 id="sec-48-2-1"><span class="section-number-4">48.2.1</span> Pooling&#xa0;&#xa0;&#xa0;<span class="tag"><span class="notes">notes</span></span></h4>
+<div class="outline-text-4" id="text-48-2-1">
 <ul class="org-ul">
 <li>Billed on the hour, so don't give up early!
 </li>
@@ -2059,9 +2170,9 @@ of your application that change
 </div>
 </div>
 </div>
-<div id="outline-container-sec-48" class="outline-2">
-<h2 id="sec-48"><span class="section-number-2">48</span> How To&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-48">
+<div id="outline-container-sec-49" class="outline-2">
+<h2 id="sec-49"><span class="section-number-2">49</span> How To&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-49">
 <div class="org-src-container">
 
 <pre class="src src-shell">python code/unique_review.py -r emr -c mrjob.conf s3://i290-jblomo/data/selected_reviews.json.gz
@@ -2073,9 +2184,9 @@ of your application that change
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-49" class="outline-2">
-<h2 id="sec-49"><span class="section-number-2">49</span> mrjob Workflow&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-49">
+<div id="outline-container-sec-50" class="outline-2">
+<h2 id="sec-50"><span class="section-number-2">50</span> mrjob Workflow&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-50">
 <ul class="org-ul">
 <li>Develop locally on subset of data
 </li>
@@ -2086,9 +2197,9 @@ of your application that change
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-50" class="outline-2">
-<h2 id="sec-50"><span class="section-number-2">50</span> Thank You!&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-50">
+<div id="outline-container-sec-51" class="outline-2">
+<h2 id="sec-51"><span class="section-number-2">51</span> Thank You!&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-51">
 <ul class="org-ul">
 <li>Jim Blomo, Engineering Manager Yelp
 </li>
@@ -2102,7 +2213,7 @@ of your application that change
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jim Blomo</p>
-<p class="date">Created: 2014-04-08 Tue 11:03</p>
+<p class="date">Created: 2014-04-08 Tue 20:08</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 23.4.1 (<a href="http://orgmode.org">Org</a> mode 8.0.6)</p>
 <p class="xhtml-validation"><a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a></p>
 </div>
